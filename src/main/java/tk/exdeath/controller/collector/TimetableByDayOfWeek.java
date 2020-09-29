@@ -17,7 +17,7 @@ public abstract class TimetableByDayOfWeek {
             lessons.add("Выходной!");
         } else {
             for (Timetable timeTable : READER.readByDayOfWeek(dayOfWeek)) {
-                lessons.add(timeTable.toString());
+                lessons.add(timeTable.toHTML());
             }
         }
         return lessons;

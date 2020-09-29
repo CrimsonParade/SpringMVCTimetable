@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Days Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            color: white;
+            background: black;
+            padding-top: 5rem;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+        }
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+        A:visited {
+            color: blue;
+        }
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<span th:text="${timetable}"></span>
+</body>
+</html>
