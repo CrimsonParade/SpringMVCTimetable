@@ -8,14 +8,12 @@ import java.time.format.DateTimeFormatter;
 public abstract class NumberOfLessons {
 
     private final LessonsCounter COUNTER = beforeWhatHolidays();
-    public static final String DELIMITER = "-------------------------------------------------------------------------";
-
 
     public String getNumberOfLessons(String lessonName) {
         String numberOfLessons;
-        numberOfLessons = "<pre>Предмет: " + lessonName + "<br>Количество уроков до " + holidaysName() + " каникул: " + lessonsBeforeSummer(lessonName) + "</pre>";
+        numberOfLessons = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeSummer(lessonName);
         if (isNotNull()) {
-            numberOfLessons += "<pre>Дата последнего урока: " + lastLessonDate() + "<br>Информация о нём: " + lastLesson() + "</pre>";
+            numberOfLessons += "\nДата последнего урока: " + lastLessonDate() + "\nИнформация о нём: " + lastLesson();
         }
         return numberOfLessons;
     }

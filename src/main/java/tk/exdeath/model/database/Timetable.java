@@ -38,11 +38,9 @@ public class Timetable implements Serializable {
     }
 
     public String toHTML() {
-        return "<pre>День недели: " + dayOfWeek +
-                " | Урок номер: " + lessonNumber +
+        return  "Урок номер: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
-                " | Урок: " + lessonName +
-                " | Учитель: " + teacherName + "<br></pre>";
+                " | Урок: " + lessonName;
     }
 
     public String getLessonName() {
