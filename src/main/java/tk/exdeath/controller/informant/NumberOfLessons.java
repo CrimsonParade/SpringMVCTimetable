@@ -1,4 +1,4 @@
-package tk.exdeath.controller.collector;
+package tk.exdeath.controller.informant;
 
 import tk.exdeath.controller.counter.LessonsCounter;
 
@@ -32,7 +32,7 @@ public abstract class NumberOfLessons {
     }
 
     private String lastLesson() {
-        return COUNTER.getLastLesson().toHTML();
+        return COUNTER.getLastLesson().toLessonCounter();
     }
 
     private String holidaysName() {

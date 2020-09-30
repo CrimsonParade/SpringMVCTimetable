@@ -1,4 +1,4 @@
-package tk.exdeath.controller.collector;
+package tk.exdeath.controller.informant;
 
 import tk.exdeath.model.DataBaseReader;
 import tk.exdeath.model.database.Timetable;
@@ -17,7 +17,7 @@ public abstract class TimetableByDayOfWeek {
             lessons.add("Выходной!");
         } else {
             for (Timetable timeTable : READER.readByDayOfWeek(dayOfWeek)) {
-                lessons.add(timeTable.toHTML());
+                lessons.add(timeTable.toTimetable());
             }
         }
         return lessons;

@@ -12,8 +12,8 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<span th:text="'День недели: ' + ${dayOfWeek}"></span>
-<br>
-<li th:each="table : ${timetable}" th:text="${table}"></li>
+    <span th:text="'День недели: ' + ${dayOfWeek}"></span>
+    <pre><br></pre>
+    <li th:each="table : ${timetable}" th:text="${table}"></li>
 </body>
 </html>

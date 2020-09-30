@@ -1,4 +1,4 @@
-package tk.exdeath.controller.collector;
+package tk.exdeath.controller.informant;
 
 import tk.exdeath.controller.counter.SummerHolidays;
 import tk.exdeath.controller.counter.LessonsCounter;

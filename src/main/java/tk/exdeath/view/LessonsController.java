@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.collector.BeforeNearestHolidays;
-import tk.exdeath.controller.collector.BeforeSummerHolidays;
-import tk.exdeath.controller.collector.NumberOfLessons;
+import tk.exdeath.controller.informant.BeforeNearestHolidays;
+import tk.exdeath.controller.informant.BeforeSummerHolidays;
+import tk.exdeath.controller.informant.NumberOfLessons;
 
 import java.util.ArrayList;
 

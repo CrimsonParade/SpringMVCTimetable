@@ -37,10 +37,15 @@ public class Timetable implements Serializable {
                 " | Учитель: " + teacherName;
     }
 
-    public String toHTML() {
-        return  "Урок номер: " + lessonNumber +
+    public String toTimetable() {
+        return  "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | Урок: " + lessonName;
+    }
+    public String toLessonCounter(){
+        return  "№: " + lessonNumber +
+                " | Кабинет: " + roomNumber +
+                " | День недели: " + dayOfWeek;
     }
 
     public String getLessonName() {
