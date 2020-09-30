@@ -1,11 +1,11 @@
-package tk.exdeath.controller.informant;
+package tk.exdeath.view.lessons;
 
 import tk.exdeath.controller.counter.LessonsCounter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class NumberOfLessons {
+public abstract class NumberOfLessonsProcessor {
 
     private final LessonsCounter COUNTER = beforeWhatHolidays();
 

@@ -1,9 +1,9 @@
-package tk.exdeath.controller.informant;
+package tk.exdeath.view.lessons;
 
 import tk.exdeath.controller.counter.SummerHolidays;
 import tk.exdeath.controller.counter.LessonsCounter;
 
-public class BeforeSummerHolidays extends NumberOfLessons {
+public class BeforeSummerHolidays extends NumberOfLessonsProcessor {
 
     @Override
     LessonsCounter beforeWhatHolidays() {

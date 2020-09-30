@@ -1,6 +1,6 @@
 package tk.exdeath.controller.counter;
 
-import tk.exdeath.model.DataBaseReader;
+import tk.exdeath.model.reader.DataBaseReader;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

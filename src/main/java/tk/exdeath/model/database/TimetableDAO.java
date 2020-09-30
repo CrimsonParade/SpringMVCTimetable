@@ -1,6 +1,7 @@
 package tk.exdeath.model.database;
 
 import org.hibernate.Session;
+import tk.exdeath.model.reader.InterfaceDAO;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -10,14 +11,16 @@ import java.util.List;
 import java.util.Set;
 
 
-public class TimetableDAO {
+public class TimetableDAO implements InterfaceDAO {
 
+    @Override
     public List<Timetable> readByDayOfWeek(String dayOfWeek){
         Criteria criteria = new Criteria();
         return criteria.byDayOfWeek(dayOfWeek);
     }
 
 
+    @Override
     public Set<String> readAllLessons() {
         Criteria criteria = new Criteria();
         return criteria.allLessons();

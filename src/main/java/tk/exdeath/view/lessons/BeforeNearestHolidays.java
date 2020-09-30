@@ -1,10 +1,10 @@
-package tk.exdeath.controller.informant;
+package tk.exdeath.view.lessons;
 
 
 import tk.exdeath.controller.counter.NearestHolidays;
 import tk.exdeath.controller.counter.LessonsCounter;
 
-public class BeforeNearestHolidays extends NumberOfLessons {
+public class BeforeNearestHolidays extends NumberOfLessonsProcessor {
 
     @Override
     LessonsCounter beforeWhatHolidays() {

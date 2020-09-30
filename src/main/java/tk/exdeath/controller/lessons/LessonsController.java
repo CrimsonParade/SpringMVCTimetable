@@ -1,12 +1,12 @@
-package tk.exdeath.view;
+package tk.exdeath.controller.lessons;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.informant.BeforeNearestHolidays;
-import tk.exdeath.controller.informant.BeforeSummerHolidays;
-import tk.exdeath.controller.informant.NumberOfLessons;
+import tk.exdeath.view.lessons.BeforeNearestHolidays;
+import tk.exdeath.view.lessons.BeforeSummerHolidays;
+import tk.exdeath.view.lessons.NumberOfLessonsProcessor;
 
 import java.util.ArrayList;
 
@@ -18,13 +18,13 @@ public class LessonsController {
             @RequestParam(name = "lessonName", required = false, defaultValue = "") String lessonName, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
-        NumberOfLessons writer;
+        NumberOfLessonsProcessor processor;
 
-        writer = new BeforeNearestHolidays();
-        lessons.add(writer.getNumberOfLessons(lessonName));
+        processor = new BeforeNearestHolidays();
+        lessons.add(processor.getNumberOfLessons(lessonName));
 
-        writer = new BeforeSummerHolidays();
-        lessons.add(writer.getNumberOfLessons(lessonName));
+        processor = new BeforeSummerHolidays();
+        lessons.add(processor.getNumberOfLessons(lessonName));
 
         model.addAttribute("timetable", lessons);
         return "lessons";

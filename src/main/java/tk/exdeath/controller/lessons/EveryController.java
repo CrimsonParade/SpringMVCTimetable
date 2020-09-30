@@ -1,13 +1,13 @@
-package tk.exdeath.view;
+package tk.exdeath.controller.lessons;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.informant.BeforeNearestHolidays;
-import tk.exdeath.controller.informant.BeforeSummerHolidays;
-import tk.exdeath.controller.informant.NumberOfLessons;
-import tk.exdeath.model.DataBaseReader;
+import tk.exdeath.view.lessons.BeforeNearestHolidays;
+import tk.exdeath.view.lessons.BeforeSummerHolidays;
+import tk.exdeath.view.lessons.NumberOfLessonsProcessor;
+import tk.exdeath.model.reader.DataBaseReader;
 
 import java.util.ArrayList;
 
@@ -19,18 +19,18 @@ public class EveryController {
             @RequestParam(name = "before", required = false, defaultValue = "nearest") String before, Model model) {
 
         DataBaseReader reader = new DataBaseReader();
-        NumberOfLessons writer = new BeforeNearestHolidays();
+        NumberOfLessonsProcessor processor = new BeforeNearestHolidays();
         ArrayList<String> lessons = new ArrayList<>();
 
         if (before.equals("nearest")) {
-            writer = new BeforeNearestHolidays();
+            processor = new BeforeNearestHolidays();
         }
         if (before.equals("summer")) {
-            writer = new BeforeSummerHolidays();
+            processor = new BeforeSummerHolidays();
         }
 
         for (String lessonName : reader.readAllLessons()) {
-             lessons.add(writer.getNumberOfLessons(lessonName));
+             lessons.add(processor.getNumberOfLessons(lessonName));
         }
 
         model.addAttribute("timetable",lessons);

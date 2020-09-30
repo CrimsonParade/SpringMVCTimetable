@@ -1,6 +1,6 @@
-package tk.exdeath.controller.informant;
+package tk.exdeath.view.days;
 
-import tk.exdeath.model.DataBaseReader;
+import tk.exdeath.model.reader.DataBaseReader;
 import tk.exdeath.model.database.Timetable;
 
 import java.util.ArrayList;

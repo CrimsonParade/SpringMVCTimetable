@@ -1,14 +1,14 @@
-package tk.exdeath.model;
+package tk.exdeath.model.reader;
 
-import tk.exdeath.model.database.Timetable;
 import tk.exdeath.model.database.TimetableDAO;
+import tk.exdeath.model.database.Timetable;
 
 import java.util.List;
 import java.util.Set;
 
 public class DataBaseReader {
 
-    private final TimetableDAO DAO = new TimetableDAO();
+    private final InterfaceDAO DAO = new TimetableDAO();
 
     public DataBaseReader() {
     }
