@@ -14,7 +14,7 @@ public class HibernateFactory {
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                Configuration config = new Configuration().configure().addAnnotatedClass(Timetable.class);
+                Configuration config = new Configuration().configure().addAnnotatedClass(Lesson.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
                 sessionFactory = config.buildSessionFactory(builder.build());
             } catch (Exception ex) {

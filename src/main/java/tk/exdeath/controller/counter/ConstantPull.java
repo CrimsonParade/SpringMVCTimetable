@@ -19,10 +19,10 @@ public class ConstantPull {
     static final int SHORT_HOLIDAYS_LENGTH = 5;
     static final int LONG_HOLIDAYS_LENGTH = 9;
     static final int NEW_YEAR_HOLIDAYS_LENGTH = 11;
-    static final long DAYS_BEFORE_SUMMER = ChronoUnit.DAYS.between(DATE_NOW, END_OF_YEAR_DATE);
-    static final long DAYS_BEFORE_HOLIDAYS = daysBeforeHolidays();
+    static final long DAYS_BEFORE_SUMMER_HOLIDAYS = ChronoUnit.DAYS.between(DATE_NOW, END_OF_YEAR_DATE);
+    static final long DAYS_BEFORE_NEAREST_HOLIDAYS = daysBeforeHolidays();
     static final DataBaseReader READER = new DataBaseReader();
-    static final DateTimeFormatter DAY_OF_WEEK = DateTimeFormatter.ofPattern("EEEE");
+    static final DateTimeFormatter DAY_OF_WEEK_FORMAT = DateTimeFormatter.ofPattern("EEEE");
 
 
     private static LocalDate dateNow() {

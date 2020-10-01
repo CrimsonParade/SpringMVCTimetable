@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "exdeath.timetable")
-public class Timetable implements Serializable {
+public class Lesson implements Serializable {
 
 
     @Id
@@ -25,7 +25,7 @@ public class Timetable implements Serializable {
     @Column(name = "teachername")
     private String teacherName;
 
-    public Timetable() {
+    public Lesson() {
     }
 
     @Override
@@ -37,12 +37,12 @@ public class Timetable implements Serializable {
                 " | Учитель: " + teacherName;
     }
 
-    public String toTimetable() {
+    public String toRoomAndLesson() {
         return  "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | Урок: " + lessonName;
     }
-    public String toLessonCounter(){
+    public String toRoomAndDayOfWeek(){
         return  "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | День недели: " + dayOfWeek;

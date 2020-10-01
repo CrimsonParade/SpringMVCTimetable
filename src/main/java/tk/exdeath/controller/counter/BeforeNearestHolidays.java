@@ -1,14 +1,14 @@
 package tk.exdeath.controller.counter;
 
-public class SummerHolidays extends LessonsCounter {
+public class BeforeNearestHolidays extends LessonsCounter {
 
     @Override
     long daysBeforeHolidays() {
-        return ConstantPull.DAYS_BEFORE_SUMMER;
+        return ConstantPull.DAYS_BEFORE_NEAREST_HOLIDAYS;
     }
 
     @Override
     public String getHolidaysName() {
-        return "летних";
+        return "ближайших";
     }
 }

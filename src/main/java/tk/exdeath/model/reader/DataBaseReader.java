@@ -1,19 +1,19 @@
 package tk.exdeath.model.reader;
 
-import tk.exdeath.model.database.TimetableDAO;
-import tk.exdeath.model.database.Timetable;
+import tk.exdeath.model.database.LessonDAO;
+import tk.exdeath.model.database.Lesson;
 
 import java.util.List;
 import java.util.Set;
 
 public class DataBaseReader {
 
-    private final InterfaceDAO DAO = new TimetableDAO();
+    private final InterfaceDAO DAO = new LessonDAO();
 
     public DataBaseReader() {
     }
 
-    public List<Timetable> readByDayOfWeek(String dayOfWeek) {
+    public List<Lesson> readByDayOfWeek(String dayOfWeek) {
         return DAO.readByDayOfWeek(dayOfWeek);
     }
 

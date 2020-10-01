@@ -1,10 +1,10 @@
-package tk.exdeath.controller.days;
+package tk.exdeath.controller.web.days;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.view.days.TimetableByDayOfWeek;
+import tk.exdeath.view.days.TimetablesProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +27,7 @@ public class DaysController {
         }
 
         model.addAttribute("dayOfWeek", dayOfWeek);
-        model.addAttribute("timetable", TimetableByDayOfWeek.getTimetable(dayOfWeek));
+        model.addAttribute("timetable", TimetablesProcessor.getTimetable(dayOfWeek));
         return "days";
     }
 }

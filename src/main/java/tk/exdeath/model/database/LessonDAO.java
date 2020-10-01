@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Set;
 
 
-public class TimetableDAO implements InterfaceDAO {
+public class LessonDAO implements InterfaceDAO {
 
     @Override
-    public List<Timetable> readByDayOfWeek(String dayOfWeek){
+    public List<Lesson> readByDayOfWeek(String dayOfWeek){
         Criteria criteria = new Criteria();
         return criteria.byDayOfWeek(dayOfWeek);
     }
@@ -31,12 +31,13 @@ public class TimetableDAO implements InterfaceDAO {
     private class Criteria {
         Session session = HibernateFactory.getSessionFactory().openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Timetable> criteria = builder.createQuery(Timetable.class);
-        Root<Timetable> root = criteria.from(Timetable.class);
+        CriteriaQuery<Lesson> criteria = builder.createQuery(Lesson.class);
+        Root<Lesson> root = criteria.from(Lesson.class);
 
 
-        List<Timetable> byDayOfWeek(String dayOfWeek) {
+        List<Lesson> byDayOfWeek(String dayOfWeek) {
             criteria.select(root).where(builder.like(root.get("dayOfWeek"), dayOfWeek));
+
             criteria.orderBy(builder.asc(root.get("lessonNumber")));
             return session.createQuery(criteria).getResultList();
         }
@@ -44,7 +45,8 @@ public class TimetableDAO implements InterfaceDAO {
         Set<String> allLessons(){
             Set<String> lessons = new HashSet<>();
             criteria.select(root);
-            for (Timetable table : session.createQuery(criteria).getResultList()) {
+
+            for (Lesson table : session.createQuery(criteria).getResultList()) {
                 lessons.add(table.getLessonName());
             }
             return lessons;

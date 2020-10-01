@@ -1,26 +1,29 @@
 package tk.exdeath.view.days;
 
 import tk.exdeath.model.reader.DataBaseReader;
-import tk.exdeath.model.database.Timetable;
+import tk.exdeath.model.database.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class TimetableByDayOfWeek {
+public abstract class TimetablesProcessor {
 
     private static final DataBaseReader READER = new DataBaseReader();
 
     public static List<String> getTimetable(String dayOfWeek) {
-        List<String> lessons = new ArrayList<>();
+
+        List<String> timetable = new ArrayList<>();
+
         if (isHoliday(dayOfWeek)) {
-            lessons.add("Выходной!");
-        } else {
-            for (Timetable timeTable : READER.readByDayOfWeek(dayOfWeek)) {
-                lessons.add(timeTable.toTimetable());
+            timetable.add("Выходной!");
+        }
+        else {
+            for (Lesson lesson : READER.readByDayOfWeek(dayOfWeek)) {
+                timetable.add(lesson.toRoomAndLesson());
             }
         }
-        return lessons;
+        return timetable;
     }
 
     private static boolean isHoliday(String dayOfWeek) {
