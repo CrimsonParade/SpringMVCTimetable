@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import tk.exdeath.view.lessons.NearestHolidays;
 import tk.exdeath.view.lessons.SummerHolidays;
 import tk.exdeath.view.lessons.LessonsProcessor;
-import tk.exdeath.model.reader.DataBaseReader;
+import tk.exdeath.model.service.LessonService;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class EveryController {
     public String every(
             @RequestParam(name = "before", required = false, defaultValue = "nearest") String before, Model model) {
 
-        DataBaseReader reader = new DataBaseReader();
+        LessonService reader = new LessonService();
         LessonsProcessor processor = new NearestHolidays();
         ArrayList<String> lessons = new ArrayList<>();
 

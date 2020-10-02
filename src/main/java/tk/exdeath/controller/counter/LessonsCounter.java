@@ -1,6 +1,6 @@
 package tk.exdeath.controller.counter;
 
-import tk.exdeath.model.database.Lesson;
+import tk.exdeath.model.Lesson;
 
 import java.time.LocalDate;
 

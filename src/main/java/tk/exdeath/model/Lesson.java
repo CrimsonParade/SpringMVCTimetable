@@ -1,9 +1,6 @@
-package tk.exdeath.model.database;
+package tk.exdeath.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -12,18 +9,23 @@ public class Lesson implements Serializable {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "lessonnumber")
+    @Column(name = "lesson_number")
     private int lessonNumber;
-    @Column(name = "dayofweek")
+    @Column(name = "day_of_week")
     private String dayOfWeek;
-    @Column(name = "lessonname")
+    @Column(name = "lesson_name")
     private String lessonName;
-    @Column(name = "roomnumber")
+    @Column(name = "room_number")
     private String roomNumber;
-    @Column(name = "teachername")
+    @Column(name = "teacher_name")
     private String teacherName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Lesson() {
     }

@@ -1,7 +1,7 @@
 package tk.exdeath.view.days;
 
-import tk.exdeath.model.reader.DataBaseReader;
-import tk.exdeath.model.database.Lesson;
+import tk.exdeath.model.service.LessonService;
+import tk.exdeath.model.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class TimetablesProcessor {
 
-    private static final DataBaseReader READER = new DataBaseReader();
+    private static final LessonService READER = new LessonService();
 
     public static List<String> getTimetable(String dayOfWeek) {
 

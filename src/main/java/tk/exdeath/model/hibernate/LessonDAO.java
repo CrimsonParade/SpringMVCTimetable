@@ -1,7 +1,7 @@
-package tk.exdeath.model.database;
+package tk.exdeath.model.hibernate;
 
 import org.hibernate.Session;
-import tk.exdeath.model.reader.InterfaceDAO;
+import tk.exdeath.model.Lesson;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -11,22 +11,18 @@ import java.util.List;
 import java.util.Set;
 
 
-public class LessonDAO implements InterfaceDAO {
+public class LessonDAO extends DAO {
 
-    @Override
     public List<Lesson> readByDayOfWeek(String dayOfWeek){
         Criteria criteria = new Criteria();
         return criteria.byDayOfWeek(dayOfWeek);
     }
 
 
-    @Override
     public Set<String> readAllLessons() {
         Criteria criteria = new Criteria();
         return criteria.allLessons();
     }
-
-
 
     private class Criteria {
         Session session = HibernateFactory.getSessionFactory().openSession();
@@ -46,8 +42,8 @@ public class LessonDAO implements InterfaceDAO {
             Set<String> lessons = new HashSet<>();
             criteria.select(root);
 
-            for (Lesson table : session.createQuery(criteria).getResultList()) {
-                lessons.add(table.getLessonName());
+            for (Lesson lesson : session.createQuery(criteria).getResultList()) {
+                lessons.add(lesson.getLessonName());
             }
             return lessons;
         }
