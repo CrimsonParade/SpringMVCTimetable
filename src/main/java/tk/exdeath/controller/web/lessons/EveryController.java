@@ -16,7 +16,8 @@ public class EveryController {
 
     @GetMapping("/every")
     public String every(
-            @RequestParam(name = "before", required = false, defaultValue = "nearest") String before, Model model) {
+            @RequestParam(defaultValue = "nearest") String before,
+            @RequestParam(defaultValue = "root") String userLogin,  Model model) {
 
         LessonService reader = new LessonService();
         LessonsProcessor processor = new NearestHolidays();
@@ -29,8 +30,8 @@ public class EveryController {
             processor = new SummerHolidays();
         }
 
-        for (String lessonName : reader.readAllLessons()) {
-             lessons.add(processor.getLessonInformation(lessonName));
+        for (String lessonName : reader.readAllLessons(userLogin)) {
+             lessons.add(processor.getLessonInformation(lessonName, userLogin));
         }
 
         model.addAttribute("timetable", lessons);

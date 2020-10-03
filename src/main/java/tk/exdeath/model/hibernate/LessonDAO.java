@@ -6,9 +6,7 @@ import tk.exdeath.model.Lesson;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class LessonDAO extends DAO {
@@ -19,12 +17,13 @@ public class LessonDAO extends DAO {
     }
 
 
-    public Set<String> readAllLessons() {
+    public List<Lesson> readAllLessons() {
         Criteria criteria = new Criteria();
         return criteria.allLessons();
     }
 
     private class Criteria {
+
         Session session = HibernateFactory.getSessionFactory().openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Lesson> criteria = builder.createQuery(Lesson.class);
@@ -33,18 +32,20 @@ public class LessonDAO extends DAO {
 
         List<Lesson> byDayOfWeek(String dayOfWeek) {
             criteria.select(root).where(builder.like(root.get("dayOfWeek"), dayOfWeek));
-
             criteria.orderBy(builder.asc(root.get("lessonNumber")));
-            return session.createQuery(criteria).getResultList();
+
+            List<Lesson> lessons = session.createQuery(criteria).getResultList();
+            session.close();
+
+            return lessons;
         }
 
-        Set<String> allLessons(){
-            Set<String> lessons = new HashSet<>();
+        List<Lesson> allLessons(){
             criteria.select(root);
 
-            for (Lesson lesson : session.createQuery(criteria).getResultList()) {
-                lessons.add(lesson.getLessonName());
-            }
+            List<Lesson> lessons = session.createQuery(criteria).getResultList();
+            session.close();
+
             return lessons;
         }
 

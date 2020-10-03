@@ -11,22 +11,22 @@ public abstract class TimetablesProcessor {
 
     private static final LessonService READER = new LessonService();
 
-    public static List<String> getTimetable(String dayOfWeek) {
+    public static List<String> getTimetable(String dayOfWeek, String userLogin) {
 
         List<String> timetable = new ArrayList<>();
 
-        if (isHoliday(dayOfWeek)) {
+        if (isHoliday(dayOfWeek, userLogin)) {
             timetable.add("Выходной!");
         }
         else {
-            for (Lesson lesson : READER.readByDayOfWeek(dayOfWeek)) {
+            for (Lesson lesson : READER.readByDayOfWeek(dayOfWeek, userLogin)) {
                 timetable.add(lesson.toRoomAndLesson());
             }
         }
         return timetable;
     }
 
-    private static boolean isHoliday(String dayOfWeek) {
-        return READER.readByDayOfWeek(dayOfWeek).isEmpty();
+    private static boolean isHoliday(String dayOfWeek, String userLogin) {
+        return READER.readByDayOfWeek(dayOfWeek, userLogin).isEmpty();
     }
 }

@@ -17,7 +17,8 @@ public class DaysController {
 
     @GetMapping("/days")
     public String days(
-            @RequestParam(name = "dayOfWeek", required = false, defaultValue = "today") String dayOfWeek, Model model) {
+            @RequestParam(defaultValue = "today") String dayOfWeek,
+            @RequestParam(defaultValue = "root") String userLogin, Model model) {
 
         if (dayOfWeek.equals("today")) {
             dayOfWeek = TODAY_DAY_OF_WEEK;
@@ -27,7 +28,7 @@ public class DaysController {
         }
 
         model.addAttribute("dayOfWeek", dayOfWeek);
-        model.addAttribute("timetable", TimetablesProcessor.getTimetable(dayOfWeek));
+        model.addAttribute("timetable", TimetablesProcessor.getTimetable(dayOfWeek, userLogin));
         return "days";
     }
 }

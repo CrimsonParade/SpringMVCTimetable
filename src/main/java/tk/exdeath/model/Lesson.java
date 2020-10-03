@@ -54,4 +54,7 @@ public class Lesson implements Serializable {
         return lessonName;
     }
 
+    public String getUserLogin() {
+        return user.getLogin();
+    }
 }

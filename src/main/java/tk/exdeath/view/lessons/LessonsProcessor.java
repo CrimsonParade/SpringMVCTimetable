@@ -13,10 +13,10 @@ public abstract class LessonsProcessor {
 
 
 
-    public String getLessonInformation(String lessonName) {
+    public String getLessonInformation(String lessonName, String userLogin) {
         String lessonInformation;
 
-        lessonInformation = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeHolidays(lessonName);
+        lessonInformation = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeHolidays(lessonName, userLogin);
 
         if (lastLessonIsNotNull()) {
             lessonInformation += "\nДата последнего урока: " + lastLessonDate() + "\nИнформация о нём: " + lastLesson();
@@ -30,8 +30,8 @@ public abstract class LessonsProcessor {
         return !COUNTER.getLastLessonDate().equals(NULL_DATE);
     }
 
-    private int lessonsBeforeHolidays(String lessonName) {
-        return COUNTER.lessonsBeforeHolidays(lessonName);
+    private int lessonsBeforeHolidays(String lessonName, String userLogin) {
+        return COUNTER.lessonsBeforeHolidays(lessonName, userLogin);
     }
 
     private String lastLessonDate() {

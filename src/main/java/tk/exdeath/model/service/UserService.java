@@ -21,8 +21,11 @@ public class UserService {
         DAO.delete(user);
     }
 
-    public User readByID(int id) {
-        return DAO.readByID(id);
+    public User readByLogin(String login) {
+        if (DAO.readByLogin(login) == null) {
+            return new User("null", "null");
+        }
+        return DAO.readByLogin(login);
     }
 
     public List<User> readAllUsers() {

@@ -15,16 +15,17 @@ public class LessonsController {
 
     @GetMapping("/lessons")
     public String lessons(
-            @RequestParam(name = "lessonName", required = false, defaultValue = "") String lessonName, Model model) {
+            @RequestParam(defaultValue = "") String lessonName,
+            @RequestParam(defaultValue = "root") String userLogin, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
         LessonsProcessor processor;
 
         processor = new NearestHolidays();
-        lessons.add(processor.getLessonInformation(lessonName));
+        lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         processor = new SummerHolidays();
-        lessons.add(processor.getLessonInformation(lessonName));
+        lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
         return "lessons";

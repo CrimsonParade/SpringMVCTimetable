@@ -22,7 +22,7 @@ public class HibernateFactory {
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
                 sessionFactory = config.buildSessionFactory(builder.build());
             } catch (Exception ex) {
-                System.out.println("Exception!" + ex);
+                System.out.println("Exception! " + ex);
             }
         }
         return sessionFactory;

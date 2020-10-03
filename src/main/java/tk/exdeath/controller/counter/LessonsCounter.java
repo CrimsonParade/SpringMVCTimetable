@@ -12,7 +12,7 @@ public abstract class LessonsCounter {
     private LocalDate lastLessonDate = NULL_DATE;
 
 
-    public int lessonsBeforeHolidays(String lessonName) {
+    public int lessonsBeforeHolidays(String lessonName, String userLogin) {
 
         LocalDate lessonDate = dateWithoutHolidays();
         int i = counterWithoutHolidays(lessonDate);
@@ -22,7 +22,7 @@ public abstract class LessonsCounter {
 
         while (i <= daysBeforeHolidays) {
 
-            for (Lesson lesson : ConstantPull.READER.readByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK_FORMAT))) {
+            for (Lesson lesson : ConstantPull.READER.readByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK_FORMAT), userLogin)) {
 
                 if (lesson.getLessonName().equals(lessonName)) {
                     lastLesson = lesson;
