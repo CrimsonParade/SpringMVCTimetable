@@ -11,43 +11,32 @@ import java.util.List;
 
 public class LessonDAO extends DAO {
 
+    Session session = HibernateFactory.getSessionFactory().openSession();
+    CriteriaBuilder builder = session.getCriteriaBuilder();
+    CriteriaQuery<Lesson> criteria = builder.createQuery(Lesson.class);
+    Root<Lesson> root = criteria.from(Lesson.class);
+
     public List<Lesson> readByDayOfWeek(String dayOfWeek){
-        Criteria criteria = new Criteria();
-        return criteria.byDayOfWeek(dayOfWeek);
+        criteria.select(root).where(builder.like(root.get("dayOfWeek"), dayOfWeek));
+        criteria.orderBy(builder.asc(root.get("lessonNumber")));
+
+        return session.createQuery(criteria).getResultList();
     }
 
 
     public List<Lesson> readAllLessons() {
-        Criteria criteria = new Criteria();
-        return criteria.allLessons();
+        criteria.select(root);
+
+        return session.createQuery(criteria).getResultList();
     }
 
-    private class Criteria {
-
-        Session session = HibernateFactory.getSessionFactory().openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Lesson> criteria = builder.createQuery(Lesson.class);
-        Root<Lesson> root = criteria.from(Lesson.class);
-
-
-        List<Lesson> byDayOfWeek(String dayOfWeek) {
-            criteria.select(root).where(builder.like(root.get("dayOfWeek"), dayOfWeek));
-            criteria.orderBy(builder.asc(root.get("lessonNumber")));
-
-            List<Lesson> lessons = session.createQuery(criteria).getResultList();
+    protected void finalize()
+    {
+        try {
             session.close();
-
-            return lessons;
         }
-
-        List<Lesson> allLessons(){
-            criteria.select(root);
-
-            List<Lesson> lessons = session.createQuery(criteria).getResultList();
-            session.close();
-
-            return lessons;
+        catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 }

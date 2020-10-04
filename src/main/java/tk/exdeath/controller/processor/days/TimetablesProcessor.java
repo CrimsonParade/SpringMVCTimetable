@@ -1,4 +1,4 @@
-package tk.exdeath.view.days;
+package tk.exdeath.controller.processor.days;
 
 import tk.exdeath.model.service.LessonService;
 import tk.exdeath.model.Lesson;

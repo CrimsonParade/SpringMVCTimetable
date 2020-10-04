@@ -1,10 +1,10 @@
-package tk.exdeath.controller.web.days;
+package tk.exdeath.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.view.days.TimetablesProcessor;
+import tk.exdeath.controller.processor.days.TimetablesProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

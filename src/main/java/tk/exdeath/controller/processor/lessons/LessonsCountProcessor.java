@@ -1,11 +1,11 @@
-package tk.exdeath.view.lessons;
+package tk.exdeath.controller.processor.lessons;
 
 import tk.exdeath.controller.counter.LessonsCounter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class LessonsProcessor {
+public abstract class LessonsCountProcessor {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
 

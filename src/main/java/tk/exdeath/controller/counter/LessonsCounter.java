@@ -1,6 +1,7 @@
 package tk.exdeath.controller.counter;
 
 import tk.exdeath.model.Lesson;
+import tk.exdeath.model.service.LessonService;
 
 import java.time.LocalDate;
 
@@ -10,6 +11,7 @@ public abstract class LessonsCounter {
 
     private Lesson lastLesson;
     private LocalDate lastLessonDate = NULL_DATE;
+    private final LessonService reader = new LessonService();
 
 
     public int lessonsBeforeHolidays(String lessonName, String userLogin) {
@@ -22,7 +24,7 @@ public abstract class LessonsCounter {
 
         while (i <= daysBeforeHolidays) {
 
-            for (Lesson lesson : ConstantPull.READER.readByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK_FORMAT), userLogin)) {
+            for (Lesson lesson : reader.readByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK_FORMAT), userLogin)) {
 
                 if (lesson.getLessonName().equals(lessonName)) {
                     lastLesson = lesson;

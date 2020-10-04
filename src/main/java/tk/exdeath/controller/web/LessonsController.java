@@ -1,12 +1,12 @@
-package tk.exdeath.controller.web.lessons;
+package tk.exdeath.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.view.lessons.NearestHolidays;
-import tk.exdeath.view.lessons.SummerHolidays;
-import tk.exdeath.view.lessons.LessonsProcessor;
+import tk.exdeath.controller.processor.lessons.NearestHolidays;
+import tk.exdeath.controller.processor.lessons.SummerHolidays;
+import tk.exdeath.controller.processor.lessons.LessonsCountProcessor;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class LessonsController {
             @RequestParam(defaultValue = "root") String userLogin, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
-        LessonsProcessor processor;
+        LessonsCountProcessor processor;
 
         processor = new NearestHolidays();
         lessons.add(processor.getLessonInformation(lessonName, userLogin));

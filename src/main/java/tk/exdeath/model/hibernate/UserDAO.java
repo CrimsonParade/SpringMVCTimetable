@@ -10,34 +10,27 @@ import java.util.List;
 
 public class UserDAO extends DAO {
 
+    Session session = HibernateFactory.getSessionFactory().openSession();
+    CriteriaBuilder builder = session.getCriteriaBuilder();
+    CriteriaQuery<User> criteria = builder.createQuery(User.class);
+    Root<User> root = criteria.from(User.class);
+
     public List<User> readAllUsers() {
-        Criteria criteria = new Criteria();
-        return criteria.allUsers();
+        return session.createQuery(criteria.select(root)).getResultList();
     }
 
     public User readByLogin(String login) {
-        Criteria criteria = new Criteria();
-        return criteria.byLogin(login);
+        return session.createQuery(criteria.select(root).where(builder.like(root.get("login"), login))).uniqueResult();
+
     }
 
-    private class Criteria {
-        Session session = HibernateFactory.getSessionFactory().openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> criteria = builder.createQuery(User.class);
-        Root<User> root = criteria.from(User.class);
-
-        User byLogin(String login) {
-            User user = session.createQuery(criteria.select(root).where(builder.like(root.get("login"), login))).uniqueResult();
-
+    protected void finalize()
+    {
+        try {
             session.close();
-            return user;
         }
-
-        List<User> allUsers() {
-            List<User> users = session.createQuery(criteria.select(root)).getResultList();
-
-            session.close();
-            return users;
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
