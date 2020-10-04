@@ -1,4 +1,4 @@
-package tk.exdeath.controller.web;
+package tk.exdeath.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ public class LessonsController {
     @GetMapping("/lessons")
     public String lessons(
             @RequestParam(defaultValue = "") String lessonName,
-            @RequestParam(defaultValue = "root") String userLogin, Model model) {
+            @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
         LessonsCountProcessor processor;

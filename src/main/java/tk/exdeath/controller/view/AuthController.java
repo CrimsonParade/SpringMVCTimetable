@@ -1,4 +1,4 @@
-package tk.exdeath.controller.web;
+package tk.exdeath.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +26,7 @@ public class AuthController {
         User testingUser = service.readByLogin(login);
 
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
-            return "redirect:/main";
+            return "redirect:/main?userLogin=" + testingUser.getLogin();
         }
         return "auth";
     }
@@ -36,7 +36,7 @@ public class AuthController {
         User testingUser = service.readByLogin(login);
         if (testingUser.getLogin().equals("null")) {
             service.create(new User(login, password));
-            return "redirect:/main";
+            return "redirect:/main?userLogin=" + login;
         }
         return "auth";
     }

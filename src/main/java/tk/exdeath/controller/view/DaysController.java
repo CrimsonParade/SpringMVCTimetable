@@ -1,4 +1,4 @@
-package tk.exdeath.controller.web;
+package tk.exdeath.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ public class DaysController {
     @GetMapping("/days")
     public String days(
             @RequestParam(defaultValue = "today") String dayOfWeek,
-            @RequestParam(defaultValue = "root") String userLogin, Model model) {
+            @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         if (dayOfWeek.equals("today")) {
             dayOfWeek = TODAY_DAY_OF_WEEK;

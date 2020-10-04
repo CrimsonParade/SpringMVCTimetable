@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            color: white;
+            background: black;
+            padding-top: 5rem;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+        }
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+        A:visited {
+            color: blue;
+        }
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <h1> Welcome to the worst website ever! <br><br></h1>
+        <h2> Click on the link below to see the timetable or number of lessons:<br><br></h2>
+            <h3><br> Days: <br></h3>
+                <p>
+                    <a th:href="@{|/days?dayOfWeek=today&userLogin=${login}|}">Today </a> |
+                    <a th:href="@{|/days?dayOfWeek=tomorrow&userLogin=${login}|}">Tomorrow </a>
+                </p>
+                <p>
+                    <a th:href="@{|/days?dayOfWeek=понедельник&userLogin=${login}|}">Monday </a> |
+                    <a th:href="@{|/days?dayOfWeek=вторник&userLogin=${login}|}">Tuesday </a> |
+                    <a th:href="@{|/days?dayOfWeek=среда&userLogin=${login}|}">Wednesday </a> |
+                    <a th:href="@{|/days?dayOfWeek=четверг&userLogin=${login}|}">Thursday </a> |
+                    <a th:href="@{|/days?dayOfWeek=пятница&userLogin=${login}|}">Friday </a>
+                </p>
+            <h3><br> Number of Lessons: <br></h3>
+                <p>
+                    <a href="lessons?lessonName=Алгебра">Math </a> |
+                    <a href="lessons?lessonName=Физика">Physics </a> |
+                    <a href="lessons?lessonName=Информатика">Informatics </a> |
+                    <a href="lessons?lessonName=Геометрия">Geometry </a>
+                </p>
+                <p>
+                    <a href="lessons?lessonName=Русский">Russian </a> |
+                    <a href="lessons?lessonName=Английский">English </a> |
+                    <a href="lessons?lessonName=Литература">Literature </a> |
+                    <a href="lessons?lessonName=История">History </a>
+                </p>
+                    <a href="lessons?lessonName=Физ-ра">Physical Education </a> |
+                    <a href="lessons?lessonName=Комп Графика">Computer Graphics </a> |
+                    <a href="lessons?lessonName=Астрономия">Astronomy </a> |
+                    <a href="lessons?lessonName=ОБЖ">Life Safety </a>
+                </p>
+            <h3><br> All lessons before: <br></h3>
+                <p>
+                    <a href="every?before=nearest">Nearest holidays</a> |
+                    <a href="every?before=summer">Summer holidays</a>
+                </p>
+</body>
+</html>

@@ -7,11 +7,6 @@
         body {
             color: white;
             background: black;
-            padding-top: 5rem;
-            text-align: center;
-        }
-        h1 {
-            color: red;
         }
         A {
             text-decoration: none;
@@ -27,11 +22,14 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1> Welcome to the worst website ever! <br><br></h1>
-        <h2> What are u gonna do? </h2>
-    <br><br><br><br>
-        <h3> <a href="timetable"> | View timetable without authorization | </a> </h3>
-    <br><br><br><br>
-        <h3> <a href="auth"> | Login to your account | </a> </h3>
+    <h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+    <h2> Введите текущий и новый пароли:</h2>
+    <form action="/editUser" method="post">
+        <input type="text" name="value" placeholder="Введите новый пароль: ">
+        <br><br>
+        <input type="text" name="password" placeholder="Введите текущий пароль: ">
+        <br><br>
+        <button type="submit">Подтвердить</button>
+    </form>
 </body>
 </html>

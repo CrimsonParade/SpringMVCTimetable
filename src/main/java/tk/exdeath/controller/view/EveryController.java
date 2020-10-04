@@ -1,4 +1,4 @@
-package tk.exdeath.controller.web;
+package tk.exdeath.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ public class EveryController {
     @GetMapping("/every")
     public String every(
             @RequestParam(defaultValue = "nearest") String before,
-            @RequestParam(defaultValue = "root") String userLogin,  Model model) {
+            @RequestParam(defaultValue = "null") String userLogin,  Model model) {
 
         LessonService reader = new LessonService();
         LessonsCountProcessor processor = whatHolidays(before);

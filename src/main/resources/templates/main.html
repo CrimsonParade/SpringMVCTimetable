@@ -7,11 +7,6 @@
         body {
             color: white;
             background: black;
-            padding-top: 5rem;
-            text-align: center;
-        }
-        h1 {
-            color: red;
         }
         A {
             text-decoration: none;
@@ -27,42 +22,9 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1> Welcome to the worst website ever! <br><br></h1>
-        <h2> Click on the link below to see the timetable or number of lessons:<br><br></h2>
-            <h3><br> Days: <br></h3>
-                <p>
-                    <a href="days?dayOfWeek=today">Today </a> |
-                    <a href="days?dayOfWeek=tomorrow">Tomorrow </a>
-                </p>
-                <p>
-                    <a href="days?dayOfWeek=понедельник">Monday </a> |
-                    <a href="days?dayOfWeek=вторник">Tuesday </a> |
-                    <a href="days?dayOfWeek=среда">Wednesday </a> |
-                    <a href="days?dayOfWeek=четверг">Thursday </a> |
-                    <a href="days?dayOfWeek=пятница">Friday </a>
-                </p>
-            <h3><br> Number of Lessons: <br></h3>
-                <p>
-                    <a href="lessons?lessonName=Алгебра">Math </a> |
-                    <a href="lessons?lessonName=Физика">Physics </a> |
-                    <a href="lessons?lessonName=Информатика">Informatics </a> |
-                    <a href="lessons?lessonName=Геометрия">Geometry </a>
-                </p>
-                <p>
-                    <a href="lessons?lessonName=Русский">Russian </a> |
-                    <a href="lessons?lessonName=Английский">English </a> |
-                    <a href="lessons?lessonName=Литература">Literature </a> |
-                    <a href="lessons?lessonName=История">History </a>
-                </p>
-                    <a href="lessons?lessonName=Физ-ра">Physical Education </a> |
-                    <a href="lessons?lessonName=Комп Графика">Computer Graphics </a> |
-                    <a href="lessons?lessonName=Астрономия">Astronomy </a> |
-                    <a href="lessons?lessonName=ОБЖ">Life Safety </a>
-                </p>
-            <h3><br> All lessons before: <br></h3>
-                <p>
-                    <a href="every?before=nearest">Nearest holidays</a> |
-                    <a href="every?before=summer">Summer holidays</a>
-                </p>
+<h4> <a th:href="@{|/editUser?userLogin=${login}|}"> Edit Account </a> </h4>
+<h4> <a href="main"> Choose Timetable </a> </h4>
+<h4> <a th:href="@{|/timetable?userLogin=${login}|}"> Show Timetable </a> </h4>
+<h4> <a th:href="@{|/editTimetable?userLogin=${login}|}"> Edit Timetable </a> </h4>
 </body>
 </html>
