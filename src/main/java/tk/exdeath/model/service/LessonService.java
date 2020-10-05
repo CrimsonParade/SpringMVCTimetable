@@ -23,10 +23,6 @@ public class LessonService {
         DAO.update(lesson);
     }
 
-    public void delete(Lesson lesson) {
-        DAO.delete(lesson);
-    }
-
     public List<Lesson> readByDayOfWeek(String dayOfWeek, String userLogin) {
         List<Lesson> lessons = new ArrayList<>();
 
@@ -39,16 +35,28 @@ public class LessonService {
         return lessons;
     }
 
-    public Set<String> readAllLessons(String userLogin) {
-        Set<String> lessons = new HashSet<>();
+    public List<Lesson> readByLogin (String userLogin) {
+        List<Lesson> lessons = new ArrayList<>();
 
         for (Lesson lesson : DAO.readAllLessons()) {
             if (lesson.getUserLogin().equals(userLogin)) {
-                lessons.add(lesson.getLessonName());
+                lessons.add(lesson);
             }
         }
 
         return lessons;
+    }
+
+    public Set<String> readAllLessonNames(String userLogin) {
+        Set<String> lessonNames = new HashSet<>();
+
+        for (Lesson lesson : DAO.readAllLessons()) {
+            if (lesson.getUserLogin().equals(userLogin)) {
+                lessonNames.add(lesson.getLessonName());
+            }
+        }
+
+        return lessonNames;
     }
 
 }

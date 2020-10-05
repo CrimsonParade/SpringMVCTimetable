@@ -35,6 +35,10 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -45,5 +49,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
     }
 }

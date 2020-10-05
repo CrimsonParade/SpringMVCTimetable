@@ -23,7 +23,7 @@ public class EveryController {
         LessonsCountProcessor processor = whatHolidays(before);
         ArrayList<String> lessons = new ArrayList<>();
 
-        for (String lessonName : reader.readAllLessons(userLogin)) {
+        for (String lessonName : reader.readAllLessonNames(userLogin)) {
              lessons.add(processor.getLessonInformation(lessonName, userLogin));
         }
 

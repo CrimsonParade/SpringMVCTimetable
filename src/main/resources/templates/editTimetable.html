@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            color: white;
+            background: black;
+        }
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+        A:visited {
+            color: blue;
+        }
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+<h2> Введите информацию об уроке:</h2>
+<form action="/editTimetable" method="post">
+    <input type="text" name="dayOfWeek" placeholder="Введите день недели: ">
+    <br><br>
+    <input type="number" name="lessonNumber" placeholder="Введите номер урока: ">
+    <br><br>
+    <input type="text" name="lessonName" placeholder="Введите название урока: ">
+    <br><br>
+    <input type="text" name="roomNumber" placeholder="Введите номер кабинета: ">
+    <br><br>
+    <input type="text" name="teacherName" placeholder="Введите имя учителя: ">
+    <br><br>
+    <button type="submit">Подтвердить</button>
+</form>
+<pre>
+    <h2>Текущее расписание: </h2>
+    <li th:each="lesson : ${timetable}" th:text="${lesson}"></li>
+</pre>
+</body>
+</html>

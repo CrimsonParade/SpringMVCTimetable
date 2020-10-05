@@ -22,7 +22,7 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+    <h1 th:text="'Здравствуйте, ' + ${login}"></h1>
     <h2> Введите текущий и новый пароли:</h2>
     <form action="/editUser" method="post">
         <input type="text" name="value" placeholder="Введите новый пароль: ">

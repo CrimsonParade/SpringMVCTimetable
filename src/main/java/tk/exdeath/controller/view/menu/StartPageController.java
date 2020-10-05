@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view;
+package tk.exdeath.controller.view.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

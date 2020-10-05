@@ -23,11 +23,20 @@ public class Lesson implements Serializable {
     @Column(name = "teacher_name")
     private String teacherName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
     public Lesson() {
+    }
+
+    public Lesson(int lessonNumber, String dayOfWeek, String lessonName, String roomNumber, String teacherName, User user) {
+        this.lessonNumber = lessonNumber;
+        this.dayOfWeek = dayOfWeek;
+        this.lessonName = lessonName;
+        this.roomNumber = roomNumber;
+        this.teacherName = teacherName;
+        this.user = user;
     }
 
     @Override
@@ -57,4 +66,5 @@ public class Lesson implements Serializable {
     public String getUserLogin() {
         return user.getLogin();
     }
+
 }

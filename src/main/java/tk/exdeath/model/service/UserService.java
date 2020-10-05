@@ -17,10 +17,6 @@ public class UserService {
         DAO.update(user);
     }
 
-    public void delete(User user) {
-        DAO.delete(user);
-    }
-
     public User readByLogin(String login) {
         if (DAO.readByLogin(login) == null) {
             return new User("null", "null");

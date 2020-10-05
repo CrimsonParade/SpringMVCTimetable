@@ -22,9 +22,12 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h4> <a th:href="@{|/editUser?userLogin=${login}|}"> Edit Account </a> </h4>
-<h4> <a href="main"> Choose Timetable </a> </h4>
-<h4> <a th:href="@{|/timetable?userLogin=${login}|}"> Show Timetable </a> </h4>
-<h4> <a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Edit Timetable </a> </h4>
+<h1 th:text="'Здравствуйте, ' + ${login}"></h1>
+<h2> Введите текущий пароль:</h2>
+<form action="/editTimetableAuth" method="post">
+    <input type="text" name="password" placeholder="Введите текущий пароль: ">
+    <br><br>
+    <button type="submit">Подтвердить</button>
+</form>
 </body>
 </html>

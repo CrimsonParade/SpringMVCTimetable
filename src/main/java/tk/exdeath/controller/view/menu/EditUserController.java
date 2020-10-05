@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view;
+package tk.exdeath.controller.view.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +14,19 @@ public class EditUserController {
     String login;
 
     @GetMapping("/editUser")
-    public String timetable(@RequestParam(defaultValue = "null") String userLogin, Model model) {
+    public String editUser(
+            @RequestParam(defaultValue = "null") String userLogin, Model model) {
+
         login = userLogin;
         model.addAttribute("login", userLogin);
         return "editUser";
     }
 
     @PostMapping("/editUser")
-    public String passCheck(@RequestParam String value, @RequestParam String password) {
+    public String editPassword(
+            @RequestParam String value,
+            @RequestParam String password) {
+
         UserService service = new UserService();
         User updatableUser = service.readByLogin(login);
 

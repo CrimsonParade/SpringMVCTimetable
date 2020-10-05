@@ -1,6 +1,7 @@
 package tk.exdeath.model.hibernate;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import tk.exdeath.model.User;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,12 +9,24 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class UserDAO extends DAO {
+public class UserDAO {
 
     Session session = HibernateFactory.getSessionFactory().openSession();
     CriteriaBuilder builder = session.getCriteriaBuilder();
     CriteriaQuery<User> criteria = builder.createQuery(User.class);
     Root<User> root = criteria.from(User.class);
+
+    public void create(User user) {
+        Transaction transaction = session.beginTransaction();
+        session.save(user);
+        transaction.commit();
+    }
+
+    public void update(User user) {
+        Transaction transaction = session.beginTransaction();
+        session.update(user);
+        transaction.commit();
+    }
 
     public List<User> readAllUsers() {
         return session.createQuery(criteria.select(root)).getResultList();
@@ -24,8 +37,7 @@ public class UserDAO extends DAO {
 
     }
 
-    protected void finalize()
-    {
+    protected void finalize() {
         try {
             session.close();
         }

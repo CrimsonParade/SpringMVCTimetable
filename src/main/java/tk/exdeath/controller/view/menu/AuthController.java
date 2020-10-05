@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view;
+package tk.exdeath.controller.view.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,10 @@ public class AuthController {
     }
 
     @PostMapping("/auth")
-    public String passCheck(@RequestParam String login, @RequestParam String password, @RequestParam(defaultValue = "Login") String move) {
+    public String passCheck(
+            @RequestParam String login,
+            @RequestParam String password,
+            @RequestParam(defaultValue = "Login") String move) {
 
         if (move.equals("Create")) {
             return createUser(login, password);
@@ -30,6 +33,7 @@ public class AuthController {
         }
         return "auth";
     }
+
 
     public String createUser(String login, String password) {
         UserService service = new UserService();
