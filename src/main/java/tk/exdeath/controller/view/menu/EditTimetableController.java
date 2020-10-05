@@ -14,7 +14,6 @@ import java.util.List;
 @Controller
 public class EditTimetableController {
 
-
     String userLogin;
     User user;
     UserService userService = new UserService();
@@ -33,6 +32,7 @@ public class EditTimetableController {
         model.addAttribute("timetable", lessons);
         return "editTimetable";
     }
+
 
     @PostMapping("/editTimetable")
     public String editTimetable(
