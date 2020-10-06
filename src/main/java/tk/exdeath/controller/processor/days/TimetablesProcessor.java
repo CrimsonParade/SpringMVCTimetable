@@ -1,7 +1,7 @@
 package tk.exdeath.controller.processor.days;
 
-import tk.exdeath.model.service.LessonService;
 import tk.exdeath.model.Lesson;
+import tk.exdeath.model.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class TimetablesProcessor {
 
-    private static final LessonService READER = new LessonService();
+    private static final UserService READER = new UserService();
 
     public static List<String> getTimetable(String dayOfWeek, String userLogin) {
 
@@ -19,7 +19,7 @@ public abstract class TimetablesProcessor {
             timetable.add("Выходной!");
         }
         else {
-            for (Lesson lesson : READER.readByDayOfWeek(dayOfWeek, userLogin)) {
+            for (Lesson lesson : READER.readLessonsByDayOfWeek(dayOfWeek, userLogin)) {
                 timetable.add(lesson.toRoomAndLesson());
             }
         }
@@ -27,6 +27,6 @@ public abstract class TimetablesProcessor {
     }
 
     private static boolean isHoliday(String dayOfWeek, String userLogin) {
-        return READER.readByDayOfWeek(dayOfWeek, userLogin).isEmpty();
+        return READER.readLessonsByDayOfWeek(dayOfWeek, userLogin).isEmpty();
     }
 }

@@ -4,10 +4,7 @@ import tk.exdeath.model.Lesson;
 import tk.exdeath.model.User;
 import tk.exdeath.model.hibernate.UserDAO;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class UserService {
 
@@ -50,6 +47,7 @@ public class UserService {
             }
         }
 
+        lessons.sort(Comparator.comparing(Lesson::getLessonNumber));
         return lessons;
     }
 
