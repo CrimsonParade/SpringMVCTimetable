@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import tk.exdeath.controller.processor.lessons.NearestHolidays;
 import tk.exdeath.controller.processor.lessons.SummerHolidays;
 import tk.exdeath.controller.processor.lessons.LessonsCountProcessor;
-import tk.exdeath.model.service.LessonService;
+import tk.exdeath.model.service.UserService;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class EveryController {
             @RequestParam(defaultValue = "nearest") String before,
             @RequestParam(defaultValue = "null") String userLogin,  Model model) {
 
-        LessonService reader = new LessonService();
+        UserService reader = new UserService();
         LessonsCountProcessor processor = whatHolidays(before);
         ArrayList<String> lessons = new ArrayList<>();
 

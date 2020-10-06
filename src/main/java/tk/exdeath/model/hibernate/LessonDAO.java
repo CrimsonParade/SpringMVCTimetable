@@ -24,10 +24,6 @@ public class LessonDAO {
         return session.createQuery(criteria).getResultList();
     }
 
-    public List<Lesson> readAllLessons() {
-        return session.createQuery(criteria.select(root)).getResultList();
-    }
-
     protected void finalize() {
         try {
             session.close();

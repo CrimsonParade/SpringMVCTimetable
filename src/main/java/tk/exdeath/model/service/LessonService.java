@@ -4,9 +4,7 @@ import tk.exdeath.model.Lesson;
 import tk.exdeath.model.hibernate.LessonDAO;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class LessonService {
 
@@ -25,18 +23,6 @@ public class LessonService {
         }
 
         return lessons;
-    }
-
-    public Set<String> readAllLessonNames(String userLogin) {
-        Set<String> lessonNames = new HashSet<>();
-
-        for (Lesson lesson : DAO.readAllLessons()) {
-            if (lesson.getUserLogin().equals(userLogin)) {
-                lessonNames.add(lesson.getLessonName());
-            }
-        }
-
-        return lessonNames;
     }
 
 }

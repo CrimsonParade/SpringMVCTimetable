@@ -28,7 +28,7 @@ public class EditUserController {
             @RequestParam String password) {
 
         UserService service = new UserService();
-        User updatableUser = service.readByLogin(login);
+        User updatableUser = service.readUserByLogin(login);
 
         if (updatableUser.getPassword().equals(password)) {
             updatableUser.setPassword(value);

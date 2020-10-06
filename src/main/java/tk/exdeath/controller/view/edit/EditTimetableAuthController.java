@@ -27,7 +27,7 @@ public class EditTimetableAuthController {
             @RequestParam(defaultValue = "") String password, Model model) {
 
         UserService service = new UserService();
-        User updatableUser = service.readByLogin(login);
+        User updatableUser = service.readUserByLogin(login);
 
         if (updatableUser.getPassword().equals(password)) {
             return "redirect:/editTimetable?userLogin=" + login;

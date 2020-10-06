@@ -26,7 +26,7 @@ public class AuthController {
         }
 
         UserService service = new UserService();
-        User testingUser = service.readByLogin(login);
+        User testingUser = service.readUserByLogin(login);
 
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
             return "redirect:/main?userLogin=" + testingUser.getLogin();
@@ -37,7 +37,7 @@ public class AuthController {
 
     public String createUser(String login, String password) {
         UserService service = new UserService();
-        User testingUser = service.readByLogin(login);
+        User testingUser = service.readUserByLogin(login);
         if (testingUser.getLogin().equals("null")) {
             service.create(new User(login, password));
             return "redirect:/main?userLogin=" + login;

@@ -25,7 +25,7 @@ public class EditTimetableController {
             @RequestParam String userLogin, Model model) {
 
         this.userLogin = userLogin;
-        this.user = userService.readByLogin(userLogin);
+        this.user = userService.readUserByLogin(userLogin);
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
