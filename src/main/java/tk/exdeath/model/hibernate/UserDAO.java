@@ -7,7 +7,6 @@ import tk.exdeath.model.User;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 public class UserDAO {
 
@@ -28,10 +27,6 @@ public class UserDAO {
         transaction.commit();
     }
 
-    public List<User> readAllUsers() {
-        return session.createQuery(criteria.select(root)).getResultList();
-    }
-
     public User readByLogin(String login) {
         return session.createQuery(criteria.select(root).where(builder.like(root.get("login"), login))).uniqueResult();
 
@@ -40,8 +35,7 @@ public class UserDAO {
     protected void finalize() {
         try {
             session.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

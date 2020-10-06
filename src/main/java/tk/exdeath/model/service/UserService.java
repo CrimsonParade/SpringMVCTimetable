@@ -3,8 +3,6 @@ package tk.exdeath.model.service;
 import tk.exdeath.model.User;
 import tk.exdeath.model.hibernate.UserDAO;
 
-import java.util.List;
-
 public class UserService {
 
     private final UserDAO DAO = new UserDAO();
@@ -22,9 +20,5 @@ public class UserService {
             return new User("null", "null");
         }
         return DAO.readByLogin(login);
-    }
-
-    public List<User> readAllUsers() {
-        return DAO.readAllUsers();
     }
 }

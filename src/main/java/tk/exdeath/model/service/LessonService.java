@@ -1,7 +1,7 @@
 package tk.exdeath.model.service;
 
-import tk.exdeath.model.hibernate.LessonDAO;
 import tk.exdeath.model.Lesson;
+import tk.exdeath.model.hibernate.LessonDAO;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,30 +15,10 @@ public class LessonService {
     public LessonService() {
     }
 
-    public void create(Lesson lesson) {
-        DAO.create(lesson);
-    }
-
-    public void update(Lesson lesson) {
-        DAO.update(lesson);
-    }
-
     public List<Lesson> readByDayOfWeek(String dayOfWeek, String userLogin) {
         List<Lesson> lessons = new ArrayList<>();
 
         for (Lesson lesson : DAO.readByDayOfWeek(dayOfWeek)) {
-            if (lesson.getUserLogin().equals(userLogin)) {
-                lessons.add(lesson);
-            }
-        }
-
-        return lessons;
-    }
-
-    public List<Lesson> readByLogin (String userLogin) {
-        List<Lesson> lessons = new ArrayList<>();
-
-        for (Lesson lesson : DAO.readAllLessons()) {
             if (lesson.getUserLogin().equals(userLogin)) {
                 lessons.add(lesson);
             }

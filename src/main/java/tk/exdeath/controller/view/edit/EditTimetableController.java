@@ -28,7 +28,7 @@ public class EditTimetableController {
         this.user = userService.readByLogin(userLogin);
 
         model.addAttribute("userLogin", userLogin);
-        model.addAttribute("timetable", getSortedLessons());
+        model.addAttribute("timetable", getSortedTimetable());
         return "editTimetable";
     }
 
@@ -47,13 +47,13 @@ public class EditTimetableController {
         userService.update(user);
 
         model.addAttribute("userLogin", userLogin);
-        model.addAttribute("timetable", getSortedLessons());
+        model.addAttribute("timetable", getSortedTimetable());
         return "editTimetable";
     }
 
 
 
-    private List<Lesson> getSortedLessons() {
+    private List<Lesson> getSortedTimetable() {
 
         List<Lesson> lessons = user.getLessons();
         lessons.sort(Comparator.comparing(Lesson::getDayOfWeek));

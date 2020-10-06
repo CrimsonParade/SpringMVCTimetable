@@ -8,10 +8,10 @@ import tk.exdeath.model.User;
 
 public class HibernateFactory {
 
+    private static SessionFactory sessionFactory;
+
     private HibernateFactory() {
     }
-
-    private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {

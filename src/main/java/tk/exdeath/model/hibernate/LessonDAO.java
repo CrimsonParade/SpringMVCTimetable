@@ -1,7 +1,6 @@
 package tk.exdeath.model.hibernate;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import tk.exdeath.model.Lesson;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -17,17 +16,6 @@ public class LessonDAO {
     CriteriaQuery<Lesson> criteria = builder.createQuery(Lesson.class);
     Root<Lesson> root = criteria.from(Lesson.class);
 
-    public void create(Lesson lesson) {
-        Transaction transaction = session.beginTransaction();
-        session.save(lesson);
-        transaction.commit();
-    }
-
-    public void update(Lesson lesson) {
-        Transaction transaction = session.beginTransaction();
-        session.update(lesson);
-        transaction.commit();
-    }
 
     public List<Lesson> readByDayOfWeek(String dayOfWeek) {
         criteria.select(root).where(builder.like(root.get("dayOfWeek"), dayOfWeek));
@@ -37,16 +25,13 @@ public class LessonDAO {
     }
 
     public List<Lesson> readAllLessons() {
-        criteria.select(root);
-
-        return session.createQuery(criteria).getResultList();
+        return session.createQuery(criteria.select(root)).getResultList();
     }
 
     protected void finalize() {
         try {
             session.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

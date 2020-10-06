@@ -23,7 +23,7 @@ public class Lesson implements Serializable {
     @Column(name = "teacher_name")
     private String teacherName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -49,12 +49,13 @@ public class Lesson implements Serializable {
     }
 
     public String toRoomAndLesson() {
-        return  "№: " + lessonNumber +
+        return "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | Урок: " + lessonName;
     }
-    public String toRoomAndDayOfWeek(){
-        return  "№: " + lessonNumber +
+
+    public String toRoomAndDayOfWeek() {
+        return "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | День недели: " + dayOfWeek;
     }
