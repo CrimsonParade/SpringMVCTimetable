@@ -67,4 +67,7 @@ public class Lesson implements Serializable {
         return user.getLogin();
     }
 
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
 }

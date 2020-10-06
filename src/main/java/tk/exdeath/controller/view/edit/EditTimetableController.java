@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.menu;
+package tk.exdeath.controller.view.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +9,7 @@ import tk.exdeath.model.Lesson;
 import tk.exdeath.model.User;
 import tk.exdeath.model.service.UserService;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -26,12 +27,11 @@ public class EditTimetableController {
         this.userLogin = userLogin;
         this.user = userService.readByLogin(userLogin);
 
-        List<Lesson> lessons = user.getLessons();
-
         model.addAttribute("userLogin", userLogin);
-        model.addAttribute("timetable", lessons);
+        model.addAttribute("timetable", getSortedLessons());
         return "editTimetable";
     }
+
 
 
     @PostMapping("/editTimetable")
@@ -46,10 +46,17 @@ public class EditTimetableController {
         user.addLesson(lesson);
         userService.update(user);
 
-        List<Lesson> lessons = user.getLessons();
-
         model.addAttribute("userLogin", userLogin);
-        model.addAttribute("timetable", lessons);
+        model.addAttribute("timetable", getSortedLessons());
         return "editTimetable";
+    }
+
+
+
+    private List<Lesson> getSortedLessons() {
+
+        List<Lesson> lessons = user.getLessons();
+        lessons.sort(Comparator.comparing(Lesson::getDayOfWeek));
+        return lessons;
     }
 }

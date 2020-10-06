@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.menu;
+package tk.exdeath.controller.view.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
