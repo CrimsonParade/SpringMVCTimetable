@@ -20,6 +20,9 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Holiday> holidays;
+
     @Override
     public String toString() {
         return "Login: " + login +
@@ -54,5 +57,13 @@ public class User implements Serializable {
 
     public void addLesson(Lesson lesson) {
         lessons.add(lesson);
+    }
+
+    public List<Holiday> getHolidays() {
+        return holidays;
+    }
+
+    public void addHoliday(Holiday holiday) {
+        holidays.add(holiday);
     }
 }

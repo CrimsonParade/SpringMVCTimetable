@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            color: white;
+            background: black;
+        }
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+        A:visited {
+            color: blue;
+        }
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1 th:text="'Здравствуйте, ' + ${login}"></h1>
+<h2> Введите текущий пароль:</h2>
+<form action="/editHolidaysAuth" method="post">
+    <input type="text" name="password" placeholder="Введите текущий пароль: ">
+    <br><br>
+    <button type="submit">Подтвердить</button>
+</form>
+</body>
+</html>

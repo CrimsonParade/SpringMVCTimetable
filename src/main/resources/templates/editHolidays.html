@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            color: white;
+            background: black;
+        }
+        h3 {
+            color: red;
+        }
+        h4 {
+            color: crimson;
+        }
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+        A:visited {
+            color: blue;
+        }
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+
+<h3> Обратите внимание! <br>
+</h3>
+<h5>
+    Если последний учебный день - 30-е декабря 2020 года, <br>
+    а первый день после каникул - 5-е января 2021 года, <br>
+    то запись должна выглядеть так: <br>
+</h5>
+<h4>
+    Год: 2020 Месяц: 12 День: 30 <br>
+    Год: 2021 Месяц: 1  День: 5 <br>
+</h4>
+
+<h2> Введите информацию о каникулах: <br></h2>
+<form action="/editHolidays" method="post">
+    <input type="number" name="beginYear" placeholder="Год начала каникул: ">
+    <input type="number" name="beginMonth" placeholder="Месяц начала каникул: ">
+    <input type="number" name="beginDay" placeholder="Последний учебный день: ">
+    <br><br>
+    <input type="number" name="endYear" placeholder="Год конца каникул: ">
+    <input type="number" name="endMonth" placeholder="Месяц конца каникул: ">
+    <input type="number" name="endDay" placeholder="Первый учебный день: ">
+    <br><br>
+    <button type="submit">Подтвердить</button>
+</form>
+<pre>
+    <h2>Каникулы: </h2>
+    <li th:each="holiday : ${holidays}" th:text="${holiday}"></li>
+</pre>
+</body>
+</html>

@@ -9,20 +9,20 @@ import tk.exdeath.model.User;
 import tk.exdeath.model.service.UserService;
 
 @Controller
-public class EditTimetableAuthController {
+public class EditHolidaysAuthController {
 
     String login;
 
-    @GetMapping("/editTimetableAuth")
+    @GetMapping("/editHolidaysAuth")
     public String auth(
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "editTimetableAuth";
+        return "editHolidaysAuth";
     }
 
-    @PostMapping("/editTimetableAuth")
+    @PostMapping("/editHolidaysAuth")
     public String passwordCheck(
             @RequestParam(defaultValue = "") String password, Model model) {
 
@@ -30,10 +30,10 @@ public class EditTimetableAuthController {
         User updatableUser = service.readUserByLogin(login);
 
         if (updatableUser.getPassword().equals(password)) {
-            return "redirect:/editTimetable?userLogin=" + login;
+            return "redirect:/editHolidays?userLogin=" + login;
         }
 
-        return "editTimetableAuth";
+        return "editHolidaysAuth";
     }
 
 }
