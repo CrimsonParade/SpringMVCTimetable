@@ -17,8 +17,7 @@ public abstract class TimetablesProcessor {
 
         if (isHoliday(dayOfWeek, userLogin)) {
             timetable.add("Выходной!");
-        }
-        else {
+        } else {
             for (Lesson lesson : READER.readLessonsByDayOfWeek(dayOfWeek, userLogin)) {
                 timetable.add(lesson.toRoomAndLesson());
             }

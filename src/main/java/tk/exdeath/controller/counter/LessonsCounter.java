@@ -24,7 +24,7 @@ public abstract class LessonsCounter {
 
         while (i <= daysBeforeHolidays) {
 
-            for (Lesson lesson : reader.readLessonsByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK_FORMAT), userLogin)) {
+            for (Lesson lesson : reader.readLessonsByDayOfWeek(lessonDate.format(ConstantPull.DAY_OF_WEEK), userLogin)) {
 
                 if (lesson.getLessonName().equals(lessonName)) {
                     lastLesson = lesson;
@@ -92,7 +92,6 @@ public abstract class LessonsCounter {
 
         return counter;
     }
-
 
 
     public LocalDate getLastLessonDate() {

@@ -33,7 +33,6 @@ public class EditTimetableController {
     }
 
 
-
     @PostMapping("/editTimetable")
     public String editTimetable(
             @RequestParam String dayOfWeek,
@@ -50,7 +49,6 @@ public class EditTimetableController {
         model.addAttribute("timetable", getSortedTimetable());
         return "editTimetable";
     }
-
 
 
     private List<Lesson> getSortedTimetable() {

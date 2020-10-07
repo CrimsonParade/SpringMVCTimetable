@@ -1,8 +1,8 @@
 package tk.exdeath.model.service;
 
+import tk.exdeath.model.DAO.UserDAO;
 import tk.exdeath.model.Lesson;
 import tk.exdeath.model.User;
-import tk.exdeath.model.hibernate.UserDAO;
 
 import java.util.*;
 

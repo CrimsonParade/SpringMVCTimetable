@@ -19,7 +19,7 @@ public class ConstantPull {
     static final int NEW_YEAR_HOLIDAYS_LENGTH = 11;
     static final long DAYS_BEFORE_SUMMER_HOLIDAYS = ChronoUnit.DAYS.between(DATE_NOW, END_OF_YEAR_DATE);
     static final long DAYS_BEFORE_NEAREST_HOLIDAYS = daysBeforeHolidays();
-    static DateTimeFormatter DAY_OF_WEEK_FORMAT = DateTimeFormatter.ofPattern("EEEE");
+    static DateTimeFormatter DAY_OF_WEEK = DateTimeFormatter.ofPattern("EEEE");
 
 
     private static LocalDate dateNow() {

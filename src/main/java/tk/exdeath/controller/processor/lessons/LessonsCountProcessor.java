@@ -12,7 +12,6 @@ public abstract class LessonsCountProcessor {
     private final LessonsCounter COUNTER = beforeWhatHolidays();
 
 
-
     public String getLessonInformation(String lessonName, String userLogin) {
         String lessonInformation;
 
@@ -23,7 +22,6 @@ public abstract class LessonsCountProcessor {
         }
         return lessonInformation;
     }
-
 
 
     private boolean lastLessonIsNotNull() {
