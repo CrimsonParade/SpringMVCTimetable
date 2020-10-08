@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
+    <title> Меню </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         body {
             color: white;
             background: black;
         }
+        table.text  {
+            width:  100%;
+            border-spacing: 0;
+        }
+        table.text td {
+            width: 50%;
+            vertical-align: top;
+        }
+        td.right {
+            text-align: right;
+        }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -22,10 +36,21 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h4> <a th:href="@{|/editUser?userLogin=${login}|}"> Edit Account </a> </h4>
-<h4> <a href="chooseTimetable"> Choose verified Timetable </a> </h4>
-<h4> <a th:href="@{|/timetable?userLogin=${login}|}"> Show Timetable </a> </h4>
-<h4> <a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Edit Timetable </a> </h4>
-<h4> <a th:href="@{|/editHolidaysAuth?userLogin=${login}|}"> Edit Holidays </a> </h4>
+<table class="text">
+    <tr>
+        <td>
+            <h2><a th:href="@{|/timetable?userLogin=${login}|}"> Посмотреть расписание </a></h2>
+            <h2><a href="chooseTimetable"> Верифицированные расписания </a></h2>
+        </td>
+        <td class="right">
+            <h2><a th:href="@{|/editUser?userLogin=${login}|}"> Изменить пароль </a></h2>
+            <h2><a th:href="@{|/editHolidaysAuth?userLogin=${login}|}"> Изменить каникулы </a></h2>
+            <h2><a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Изменить расписание </a></h2>
+        </td>
+    </tr>
+</table>
+
+<br>
+
 </body>
 </html>

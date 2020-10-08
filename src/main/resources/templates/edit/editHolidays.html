@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
+    <title> Каникулы </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         body {
             color: white;
             background: black;
+            text-align: center;
+            padding-top: 2rem;
         }
-        h3 {
+
+        h1 {
             color: red;
         }
-        h4 {
+
+        h3 {
             color: crimson;
         }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -28,31 +35,37 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+<h2 th:text="'Здравствуйте, ' + ${userLogin}"></h2>
 
-<h3> Обратите внимание! <br>
-</h3>
-<h5>
+<h1> Обратите внимание! <br>
+</h1>
+<h2>
     Если последний учебный день - 30-е декабря 2020 года, <br>
     а первый день после каникул - 5-е января 2021 года, <br>
     то запись должна выглядеть так: <br>
-</h5>
-<h4>
-    Год: 2020 Месяц: 12 День: 30 <br>
-    Год: 2021 Месяц: 1  День: 5 <br>
-</h4>
-
+</h2>
+<h3>
+    Год: 2020 Месяц: 12 День: 30 <br><br>
+    Год: 2021 Месяц: 1 День: 5 <br><br>
+</h3>
 <h2> Введите информацию о каникулах: <br></h2>
+<br> <br>
 <form action="/editHolidays" method="post">
-    <input type="number" name="beginYear" placeholder="Год начала каникул: ">
-    <input type="number" name="beginMonth" placeholder="Месяц начала каникул: ">
-    <input type="number" name="beginDay" placeholder="Последний учебный день: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginYear"
+           placeholder="Год начала каникул: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginMonth"
+           placeholder="Месяц начала каникул: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginDay"
+           placeholder="Последний учебный день: ">
     <br><br>
-    <input type="number" name="endYear" placeholder="Год конца каникул: ">
-    <input type="number" name="endMonth" placeholder="Месяц конца каникул: ">
-    <input type="number" name="endDay" placeholder="Первый учебный день: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endYear"
+           placeholder="Год конца каникул: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endMonth"
+           placeholder="Месяц конца каникул: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endDay"
+           placeholder="Первый учебный день: ">
     <br><br>
-    <button type="submit">Подтвердить</button>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>
 <pre>
     <h2>Каникулы: </h2>

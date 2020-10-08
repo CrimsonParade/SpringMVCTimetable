@@ -7,6 +7,8 @@
         body {
             color: white;
             background: black;
+            text-align: center;
+            padding-top: 2rem;
         }
         A {
             text-decoration: none;
@@ -22,12 +24,14 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h1 th:text="'Здравствуйте, ' + ${login}"></h1>
-<h2> Введите текущий пароль:</h2>
+<h2 th:text="'Здравствуйте, ' + ${login}"></h2>
+<h1> Введите текущий пароль:</h1>
+<br><br>
 <form action="/editTimetableAuth" method="post">
-    <input type="text" name="password" placeholder="Введите текущий пароль: ">
+    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password"
+           placeholder="Введите текущий пароль: ">
     <br><br>
-    <button type="submit">Подтвердить</button>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>
 </body>
 </html>

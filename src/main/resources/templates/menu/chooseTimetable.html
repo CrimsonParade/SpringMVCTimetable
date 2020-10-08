@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
+    <title> Верифицированные расписания </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         body {
             color: white;
             background: black;
+            padding-top: 5rem;
+            text-align: center;
         }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -22,7 +27,7 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h1>List of verified timetables:</h1>
-<h4> <a href="timetable?userLogin=null"> School: 1530, Class: 11A</a> </h4>
+<h1>Список верифицированных расписаний:</h1> <br>
+<h2><a href="timetable?userLogin=null"> Школа: 1530, Класс: 11A</a></h2>
 </body>
 </html>

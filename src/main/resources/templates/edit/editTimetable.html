@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
+    <title> Расписание </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         body {
             color: white;
             background: black;
+            text-align: center;
+            padding-top: 2rem;
         }
+
+        h1 {
+            color: red;
+        }
+
+        h3 {
+            color: crimson;
+        }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -22,20 +35,40 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h1 th:text="'Здравствуйте, ' + ${userLogin}"></h1>
+<h2 th:text="'Здравствуйте, ' + ${userLogin}"></h2>
+<h1> Обратите внимание! <br>
+</h1>
+<h2>
+    Для корректной работы <br>
+    Запись должна выглядеть так: <br>
+</h2>
+<h3>
+    День недели: понедельник <br><br>
+    Номер урока: 1 <br><br>
+    Название урока: Алгебра <br><br>
+    Номер кабинета: 333 <br><br>
+    Имя учителя: Иванов И.И. <br><br>
+</h3>
+
 <h2> Введите информацию об уроке:</h2>
+<br><br>
 <form action="/editTimetable" method="post">
-    <input type="text" name="dayOfWeek" placeholder="Введите день недели: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="dayOfWeek"
+           placeholder="Введите день недели: ">
     <br><br>
-    <input type="number" name="lessonNumber" placeholder="Введите номер урока: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="lessonNumber"
+           placeholder="Введите номер урока: ">
     <br><br>
-    <input type="text" name="lessonName" placeholder="Введите название урока: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="lessonName"
+           placeholder="Введите название урока: ">
     <br><br>
-    <input type="text" name="roomNumber" placeholder="Введите номер кабинета: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="roomNumber"
+           placeholder="Введите номер кабинета: ">
     <br><br>
-    <input type="text" name="teacherName" placeholder="Введите имя учителя: ">
+    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="teacherName"
+           placeholder="Введите имя учителя: ">
     <br><br>
-    <button type="submit">Подтвердить</button>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>
 <pre>
     <h2>Текущее расписание: </h2>

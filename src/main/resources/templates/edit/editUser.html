@@ -7,14 +7,19 @@
         body {
             color: white;
             background: black;
+            text-align: center;
+            padding-top: 2rem;
         }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -22,14 +27,17 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1 th:text="'Здравствуйте, ' + ${login}"></h1>
-    <h2> Введите текущий и новый пароли:</h2>
-    <form action="/editUser" method="post">
-        <input type="text" name="value" placeholder="Введите новый пароль: ">
-        <br><br>
-        <input type="text" name="password" placeholder="Введите текущий пароль: ">
-        <br><br>
-        <button type="submit">Подтвердить</button>
-    </form>
+<h2 th:text="'Здравствуйте, ' + ${login}"></h2>
+<h1> Введите пароли:</h1>
+<br><br>
+<form action="/editUser" method="post">
+    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="value"
+           placeholder="Введите новый пароль: ">
+    <br><br>
+    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password"
+           placeholder="Введите текущий пароль: ">
+    <br><br>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
+</form>
 </body>
 </html>
