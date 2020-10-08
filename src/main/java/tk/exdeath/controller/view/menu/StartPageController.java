@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class StartPageController {
 
     @GetMapping("/")
-    public String index() {
-        return "index";
+    public String startPage() {
+        return "menu/startPage";
     }
 }

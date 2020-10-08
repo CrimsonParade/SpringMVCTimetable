@@ -13,6 +13,6 @@ public class TimetableController {
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         model.addAttribute("login", userLogin);
-        return "timetable";
+        return "menu/timetable";
     }
 }

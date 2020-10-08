@@ -8,6 +8,6 @@ public class ChooseTimetableController {
 
     @GetMapping("/chooseTimetable")
     public String chooseTimetable() {
-        return "chooseTimetable";
+        return "menu/chooseTimetable";
     }
 }

@@ -12,7 +12,7 @@ public class AuthController {
 
     @GetMapping("/auth")
     public String auth() {
-        return "auth";
+        return "menu/auth";
     }
 
     @PostMapping("/auth")
@@ -31,7 +31,7 @@ public class AuthController {
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
             return "redirect:/main?userLogin=" + testingUser.getLogin();
         }
-        return "auth";
+        return "menu/auth";
     }
 
 
@@ -42,6 +42,6 @@ public class AuthController {
             service.create(new User(login, password));
             return "redirect:/main?userLogin=" + login;
         }
-        return "auth";
+        return "menu/auth";
     }
 }
