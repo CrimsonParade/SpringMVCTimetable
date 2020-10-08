@@ -2,12 +2,12 @@ package tk.exdeath.controller.processor.lessons;
 
 
 import tk.exdeath.controller.counter.BeforeNearestHolidays;
-import tk.exdeath.controller.counter.LessonsCounter;
+import tk.exdeath.controller.counter.LessonCounter;
 
 public class NearestHolidays extends LessonsCountProcessor {
 
     @Override
-    LessonsCounter beforeWhatHolidays() {
+    LessonCounter beforeWhatHolidays() {
         return new BeforeNearestHolidays();
     }
 }

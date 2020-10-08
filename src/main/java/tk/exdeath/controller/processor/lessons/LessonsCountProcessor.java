@@ -1,6 +1,6 @@
 package tk.exdeath.controller.processor.lessons;
 
-import tk.exdeath.controller.counter.LessonsCounter;
+import tk.exdeath.controller.counter.LessonCounter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -9,7 +9,7 @@ public abstract class LessonsCountProcessor {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
 
-    private final LessonsCounter COUNTER = beforeWhatHolidays();
+    private final LessonCounter COUNTER = beforeWhatHolidays();
 
 
     public String getLessonInformation(String lessonName, String userLogin) {
@@ -45,5 +45,5 @@ public abstract class LessonsCountProcessor {
         return COUNTER.getHolidaysName();
     }
 
-    abstract LessonsCounter beforeWhatHolidays();
+    abstract LessonCounter beforeWhatHolidays();
 }

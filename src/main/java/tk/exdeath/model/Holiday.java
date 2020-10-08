@@ -42,4 +42,25 @@ public class Holiday implements Serializable {
                 ", Месяц: " + month +
                 ", День: " + day;
     }
+
+    @Override
+    public int hashCode() {
+        return ((year % 100) * 10000) + (month * 100) + day;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
 }

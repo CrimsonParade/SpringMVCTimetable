@@ -1,10 +1,25 @@
 package tk.exdeath.controller.counter;
 
-public class BeforeNearestHolidays extends LessonsCounter {
+import tk.exdeath.model.Holiday;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class BeforeNearestHolidays extends LessonCounter {
 
     @Override
-    long daysBeforeHolidays() {
-        return ConstantPull.DAYS_BEFORE_NEAREST_HOLIDAYS;
+    long daysBeforeHolidays(String userLogin) {
+
+        for (Holiday holiday : getSortedHolidays(userLogin)) {
+
+            LocalDate holidayDate = LocalDate.of(holiday.getYear(), holiday.getMonth(), holiday.getDay());
+
+            if (ChronoUnit.DAYS.between(dateNow(), holidayDate) > 0) {
+                return ChronoUnit.DAYS.between(dateNow(), holidayDate);
+            }
+        }
+
+        return 0;
     }
 
     @Override

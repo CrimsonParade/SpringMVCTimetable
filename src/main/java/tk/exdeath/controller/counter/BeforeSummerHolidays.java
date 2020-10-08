@@ -1,10 +1,16 @@
 package tk.exdeath.controller.counter;
 
-public class BeforeSummerHolidays extends LessonsCounter {
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class BeforeSummerHolidays extends LessonCounter {
 
     @Override
-    long daysBeforeHolidays() {
-        return ConstantPull.DAYS_BEFORE_SUMMER_HOLIDAYS;
+    long daysBeforeHolidays(String userLogin) {
+
+        LocalDate endOfYear = LocalDate.of(2021, 5, 31);
+
+        return ChronoUnit.DAYS.between(dateNow(), endOfYear);
     }
 
     @Override
