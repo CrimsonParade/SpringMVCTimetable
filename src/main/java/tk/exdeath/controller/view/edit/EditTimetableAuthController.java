@@ -19,7 +19,7 @@ public class EditTimetableAuthController {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "editTimetableAuth";
+        return "edit/editTimetableAuth";
     }
 
     @PostMapping("/editTimetableAuth")
@@ -33,7 +33,7 @@ public class EditTimetableAuthController {
             return "redirect:/editTimetable?userLogin=" + login;
         }
 
-        return "editTimetableAuth";
+        return "edit/editTimetableAuth";
     }
 
 }

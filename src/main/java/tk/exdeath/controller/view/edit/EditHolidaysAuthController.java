@@ -19,7 +19,7 @@ public class EditHolidaysAuthController {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "editHolidaysAuth";
+        return "edit/editHolidaysAuth";
     }
 
     @PostMapping("/editHolidaysAuth")
@@ -33,7 +33,7 @@ public class EditHolidaysAuthController {
             return "redirect:/editHolidays?userLogin=" + login;
         }
 
-        return "editHolidaysAuth";
+        return "edit/editHolidaysAuth";
     }
 
 }

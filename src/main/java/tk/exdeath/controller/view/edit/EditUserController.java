@@ -19,7 +19,7 @@ public class EditUserController {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "editUser";
+        return "edit/editUser";
     }
 
     @PostMapping("/editUser")

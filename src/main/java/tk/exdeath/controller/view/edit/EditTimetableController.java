@@ -29,7 +29,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "editTimetable";
+        return "edit/editTimetable";
     }
 
 
@@ -47,7 +47,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "editTimetable";
+        return "edit/editTimetable";
     }
 
 

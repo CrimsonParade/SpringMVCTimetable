@@ -29,7 +29,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "editHolidays";
+        return "edit/editHolidays";
     }
 
 
@@ -53,7 +53,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "editHolidays";
+        return "edit/editHolidays";
     }
 
 }
