@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class TimetablesProcessor {
+public abstract class TimetableByDayOfWeekProcessor {
 
     private static final UserService READER = new UserService();
 

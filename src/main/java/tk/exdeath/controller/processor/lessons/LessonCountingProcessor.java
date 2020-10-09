@@ -5,7 +5,7 @@ import tk.exdeath.controller.counter.LessonCounter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class LessonsCountProcessor {
+public abstract class LessonCountingProcessor {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
 

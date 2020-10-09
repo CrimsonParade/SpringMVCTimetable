@@ -4,22 +4,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.processor.lessons.LessonsCountProcessor;
+import tk.exdeath.controller.processor.lessons.LessonCountingProcessor;
 import tk.exdeath.controller.processor.lessons.NearestHolidays;
 import tk.exdeath.controller.processor.lessons.SummerHolidays;
 
 import java.util.ArrayList;
 
 @Controller
-public class NumberOfLessonsController {
+public class LessonsCountingController {
 
     @GetMapping("/lessons")
-    public String numberOfLessons(
+    public String lessonsCounting(
             @RequestParam(defaultValue = "") String lessonName,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
-        LessonsCountProcessor processor;
+        LessonCountingProcessor processor;
 
         processor = new NearestHolidays();
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
@@ -28,6 +28,6 @@ public class NumberOfLessonsController {
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return "numberOfLessons";
+        return "lessonsCounting";
     }
 }

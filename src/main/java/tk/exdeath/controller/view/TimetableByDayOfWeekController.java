@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.processor.days.TimetablesProcessor;
+import tk.exdeath.controller.processor.days.TimetableByDayOfWeekProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,7 +28,7 @@ public class TimetableByDayOfWeekController {
         }
 
         model.addAttribute("dayOfWeek", dayOfWeek);
-        model.addAttribute("timetable", TimetablesProcessor.getTimetable(dayOfWeek, userLogin));
+        model.addAttribute("timetable", TimetableByDayOfWeekProcessor.getTimetable(dayOfWeek, userLogin));
         return "timetableByDayOfWeek";
     }
 }
