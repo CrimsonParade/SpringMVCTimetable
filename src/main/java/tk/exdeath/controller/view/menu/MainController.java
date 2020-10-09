@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class TimetableController {
+public class MainController {
 
-    @GetMapping("/timetable")
-    public String timetable(
+    @GetMapping("/main")
+    public String main(
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         model.addAttribute("login", userLogin);
-        return "menu/timetable";
+        return "menu/main";
     }
 }
