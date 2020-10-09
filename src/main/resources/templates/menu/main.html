@@ -12,6 +12,7 @@
         }
 
         A {
+            font-size: 30px;
             text-decoration: none;
             color: crimson;
         }
@@ -42,7 +43,7 @@
     <a th:href="@{|/days?dayOfWeek=пятница&userLogin=${login}|}"> Пятница </a>
 </p>
 
-<h2><br><br> Количество уроков до: <br></h2>
+<h2><br><br> Количество всех уроков до: <br></h2>
 <p>
     <a th:href="@{|/allLessons?before=nearest&userLogin=${login}|}"> Ближайших каникул</a> |
     <a th:href="@{|/allLessons?before=summer&userLogin=${login}|}"> Летних каникул</a>
