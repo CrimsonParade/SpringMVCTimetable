@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.menu;
+package tk.exdeath.controller.view.RU.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +8,6 @@ public class StartPageController {
 
     @GetMapping("/")
     public String startPage() {
-        return "menu/startPage";
+        return "RU/menu/startPage";
     }
 }

@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view;
+package tk.exdeath.controller.view.RU;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +28,6 @@ public class LessonsCountingController {
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return "lessonsCounting";
+        return "RU/lessonsCounting";
     }
 }

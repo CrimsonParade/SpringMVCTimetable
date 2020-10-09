@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.menu;
+package tk.exdeath.controller.view.RU.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ public class AuthController {
 
     @GetMapping("/auth")
     public String auth() {
-        return "menu/auth";
+        return "RU/menu/auth";
     }
 
     @PostMapping("/auth")
@@ -31,7 +31,7 @@ public class AuthController {
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
             return "redirect:/accountSettings?userLogin=" + testingUser.getLogin();
         }
-        return "menu/auth";
+        return "RU/menu/auth";
     }
 
 

@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.edit;
+package tk.exdeath.controller.view.RU.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "edit/editHolidays";
+        return "RU/edit/editHolidays";
     }
 
 
@@ -53,7 +53,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "edit/editHolidays";
+        return "RU/edit/editHolidays";
     }
 
 }

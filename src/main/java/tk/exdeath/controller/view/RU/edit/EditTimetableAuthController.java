@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.edit;
+package tk.exdeath.controller.view.RU.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,32 +9,31 @@ import tk.exdeath.model.User;
 import tk.exdeath.model.service.UserService;
 
 @Controller
-public class EditUserController {
+public class EditTimetableAuthController {
 
     String login;
 
-    @GetMapping("/editUser")
-    public String editUser(
+    @GetMapping("/editTimetableAuth")
+    public String auth(
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "edit/editUser";
+        return "RU/edit/editTimetableAuth";
     }
 
-    @PostMapping("/editUser")
-    public String editPassword(
-            @RequestParam String value,
-            @RequestParam String password) {
+    @PostMapping("/editTimetableAuth")
+    public String passwordCheck(
+            @RequestParam(defaultValue = "") String password, Model model) {
 
         UserService service = new UserService();
         User updatableUser = service.readUserByLogin(login);
 
         if (updatableUser.getPassword().equals(password)) {
-            updatableUser.setPassword(value);
-            service.update(updatableUser);
+            return "redirect:/editTimetable?userLogin=" + login;
         }
 
-        return "redirect:/main?userLogin=" + login;
+        return "RU/edit/editTimetableAuth";
     }
+
 }

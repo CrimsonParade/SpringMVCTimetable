@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view;
+package tk.exdeath.controller.view.RU;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +28,7 @@ public class LessonsCountingForEachLessonController {
         }
 
         model.addAttribute("timetable", lessons);
-        return "lessonsCountingForEachLesson";
+        return "RU/lessonsCountingForEachLesson";
     }
 
     LessonCountingProcessor whatHolidays(String holidaysName) {

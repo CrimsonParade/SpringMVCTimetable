@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.edit;
+package tk.exdeath.controller.view.RU.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "edit/editTimetable";
+        return "RU/edit/editTimetable";
     }
 
 
@@ -47,7 +47,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "edit/editTimetable";
+        return "RU/edit/editTimetable";
     }
 
 

@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.edit;
+package tk.exdeath.controller.view.RU.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ public class EditHolidaysAuthController {
 
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "edit/editHolidaysAuth";
+        return "RU/edit/editHolidaysAuth";
     }
 
     @PostMapping("/editHolidaysAuth")
@@ -33,7 +33,7 @@ public class EditHolidaysAuthController {
             return "redirect:/editHolidays?userLogin=" + login;
         }
 
-        return "edit/editHolidaysAuth";
+        return "RU/edit/editHolidaysAuth";
     }
 
 }
