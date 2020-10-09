@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Изменение расписания </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -10,13 +10,16 @@
             text-align: center;
             padding-top: 2rem;
         }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -28,8 +31,8 @@
 <h1> Введите текущий пароль:</h1>
 <br><br>
 <form action="/editTimetableAuth" method="post">
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password"
-           placeholder="Введите текущий пароль: ">
+    <input name="password" placeholder="Введите текущий пароль: " style="width:50%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>

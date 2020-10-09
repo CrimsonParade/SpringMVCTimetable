@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title> Начальная страница </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -10,16 +10,20 @@
             padding-top: 5rem;
             text-align: center;
         }
+
         h1 {
             color: red;
         }
+
         A {
             text-decoration: none;
             color: crimson;
         }
+
         A:visited {
             color: blue;
         }
+
         A:active {
             color: green;
         }
@@ -27,11 +31,11 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1> Добро пожаловать на худший в мире сайт <br><br></h1>
-        <h2> Зачем пожаловали? </h2>
-    <br><br><br><br>
-        <h1> <a href="chooseTimetable"> Посмотреть расписание без авторизации </a> </h1>
-    <br><br><br><br>
-        <h1> <a href="auth"> Войти в аккаунт </a> </h1>
+<h1> Добро пожаловать на худший в мире сайт <br><br></h1>
+<h2> Зачем пожаловали? </h2>
+<br><br><br><br>
+<h1><a href="chooseTimetable"> Посмотреть расписание без авторизации </a></h1>
+<br><br><br><br>
+<h1><a href="auth"> Войти в аккаунт </a></h1>
 </body>
 </html>

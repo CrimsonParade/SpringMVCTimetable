@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Каникулы </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Изменение каникул </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -51,19 +51,19 @@
 <h2> Введите информацию о каникулах: <br></h2>
 <br> <br>
 <form action="/editHolidays" method="post">
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginYear"
-           placeholder="Год начала каникул: ">
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginMonth"
-           placeholder="Месяц начала каникул: ">
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="beginDay"
-           placeholder="Последний учебный день: ">
+    <input name="beginYear" placeholder="Год начала каникул: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="beginMonth" placeholder="Месяц начала каникул: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="beginDay" placeholder="Последний учебный день: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
     <br><br>
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endYear"
-           placeholder="Год конца каникул: ">
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endMonth"
-           placeholder="Месяц конца каникул: ">
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="endDay"
-           placeholder="Первый учебный день: ">
+    <input name="endYear" placeholder="Год конца каникул: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="endMonth" placeholder="Месяц конца каникул: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="endDay" placeholder="Первый учебный день: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>

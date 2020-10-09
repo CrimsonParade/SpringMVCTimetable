@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title> Аутентификация </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -10,20 +10,18 @@
             padding-top: 2rem;
             text-align: center;
         }
-
-
     </style>
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
 <form action="/auth" method="post">
-    <input type="radio" name="move" value="Create"> Создать аккаунт
+    <input name="move" type="radio" value="Create"> Создать аккаунт
     <br><br>
-    <input type="radio" name="move" value="Login"> Войти в существующий
+    <input name="move" type="radio" value="Login"> Войти в существующий
     <br><br><br>
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="login" placeholder="Введите логин: ">
+    <input name="login" placeholder="Введите логин: " style="width:50%; height: 50px; font-size: 30px" type="text">
     <br><br>
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password" placeholder="Введите пароль: ">
+    <input name="password" placeholder="Введите пароль: " style="width:50%; height: 50px; font-size: 30px" type="text">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Расписание </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Изменение расписания </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -53,20 +53,20 @@
 <h2> Введите информацию об уроке:</h2>
 <br><br>
 <form action="/editTimetable" method="post">
-    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="dayOfWeek"
-           placeholder="Введите день недели: ">
+    <input name="dayOfWeek" placeholder="Введите день недели: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
-    <input style="width:30%; height: 50px; font-size: 30px" type="number" name="lessonNumber"
-           placeholder="Введите номер урока: ">
+    <input name="lessonNumber" placeholder="Введите номер урока: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
     <br><br>
-    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="lessonName"
-           placeholder="Введите название урока: ">
+    <input name="lessonName" placeholder="Введите название урока: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
-    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="roomNumber"
-           placeholder="Введите номер кабинета: ">
+    <input name="roomNumber" placeholder="Введите номер кабинета: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
-    <input style="width:30%; height: 50px; font-size: 30px" type="text" name="teacherName"
-           placeholder="Введите имя учителя: ">
+    <input name="teacherName" placeholder="Введите имя учителя: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>

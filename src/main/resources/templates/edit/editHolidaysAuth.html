@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Каникулы </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Изменение каникул </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -31,8 +31,8 @@
 <h1> Введите текущий пароль:</h1>
 <br><br>
 <form action="/editHolidaysAuth" method="post">
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password"
-           placeholder="Введите текущий пароль: ">
+    <input name="password" placeholder="Введите текущий пароль: " style="width:50%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>

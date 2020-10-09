@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Days Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Расписание </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -12,8 +12,8 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <span th:text="'День недели: ' + ${dayOfWeek}"></span>
-    <pre><br></pre>
-    <li th:each="table : ${timetable}" th:text="${table}"></li>
+<span th:text="'День недели: ' + ${dayOfWeek}"></span>
+<pre><br></pre>
+<li th:each="table : ${timetable}" th:text="${table}"></li>
 </body>
 </html>

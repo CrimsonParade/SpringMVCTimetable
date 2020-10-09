@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Start Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Изменение пароля </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
             color: white;
@@ -31,11 +31,11 @@
 <h1> Введите пароли:</h1>
 <br><br>
 <form action="/editUser" method="post">
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="value"
-           placeholder="Введите новый пароль: ">
+    <input name="value" placeholder="Введите новый пароль: " style="width:50%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
-    <input style="width:50%; height: 50px; font-size: 30px" type="text" name="password"
-           placeholder="Введите текущий пароль: ">
+    <input name="password" placeholder="Введите текущий пароль: " style="width:50%; height: 50px; font-size: 30px"
+           type="text">
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>
