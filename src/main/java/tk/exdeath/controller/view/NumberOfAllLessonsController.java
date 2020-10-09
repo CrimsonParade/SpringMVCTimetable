@@ -12,10 +12,10 @@ import tk.exdeath.model.service.UserService;
 import java.util.ArrayList;
 
 @Controller
-public class EveryController {
+public class NumberOfAllLessonsController {
 
-    @GetMapping("/every")
-    public String every(
+    @GetMapping("/allLessons")
+    public String numberOfAllLessons(
             @RequestParam(defaultValue = "nearest") String before,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -28,7 +28,7 @@ public class EveryController {
         }
 
         model.addAttribute("timetable", lessons);
-        return "every";
+        return "numberOfAllLessons";
     }
 
     LessonsCountProcessor whatHolidays(String holidaysName) {

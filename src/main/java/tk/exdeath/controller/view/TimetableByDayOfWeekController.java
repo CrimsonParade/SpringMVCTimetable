@@ -10,13 +10,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Controller
-public class DaysController {
+public class TimetableByDayOfWeekController {
 
     private final String TODAY_DAY_OF_WEEK = LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE"));
     private final String TOMORROW_DAY_OF_WEEK = LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("EEEE"));
 
     @GetMapping("/days")
-    public String days(
+    public String timetableByDayOfWeek(
             @RequestParam(defaultValue = "today") String dayOfWeek,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -29,6 +29,6 @@ public class DaysController {
 
         model.addAttribute("dayOfWeek", dayOfWeek);
         model.addAttribute("timetable", TimetablesProcessor.getTimetable(dayOfWeek, userLogin));
-        return "days";
+        return "timetableByDayOfWeek";
     }
 }

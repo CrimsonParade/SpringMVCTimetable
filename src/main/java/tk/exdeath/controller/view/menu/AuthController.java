@@ -29,7 +29,7 @@ public class AuthController {
         User testingUser = service.readUserByLogin(login);
 
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
-            return "redirect:/main?userLogin=" + testingUser.getLogin();
+            return "redirect:/accountSettings?userLogin=" + testingUser.getLogin();
         }
         return "menu/auth";
     }
@@ -40,7 +40,7 @@ public class AuthController {
         User testingUser = service.readUserByLogin(login);
         if (testingUser.getLogin().equals("null")) {
             service.create(new User(login, password));
-            return "redirect:/main?userLogin=" + login;
+            return "redirect:/accountSettings?userLogin=" + login;
         }
         return "menu/auth";
     }

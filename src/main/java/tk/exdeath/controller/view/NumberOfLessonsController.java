@@ -11,10 +11,10 @@ import tk.exdeath.controller.processor.lessons.SummerHolidays;
 import java.util.ArrayList;
 
 @Controller
-public class LessonsController {
+public class NumberOfLessonsController {
 
     @GetMapping("/lessons")
-    public String lessons(
+    public String numberOfLessons(
             @RequestParam(defaultValue = "") String lessonName,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -28,6 +28,6 @@ public class LessonsController {
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return "lessons";
+        return "numberOfLessons";
     }
 }
