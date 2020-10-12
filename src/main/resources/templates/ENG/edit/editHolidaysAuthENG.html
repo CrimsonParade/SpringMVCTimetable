@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Изменение каникул </title>
+    <title> Edit Holidays </title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
@@ -14,14 +14,14 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h2 th:text="'Здравствуйте, ' + ${login}"></h2>
-<h1> Введите текущий пароль:</h1>
+<h2 th:text="'Hello, ' + ${login}"></h2>
+<h1> Enter your password: </h1>
 <br><br>
 <form action="/editHolidaysAuth" method="post">
-    <input name="password" placeholder="Введите текущий пароль: " style="width:50%; height: 50px; font-size: 30px"
+    <input name="password" placeholder="Enter your password: " style="width:50%; height: 50px; font-size: 30px"
            type="text">
     <br><br>
-    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Submit</button>
 </form>
 </body>
 </html>

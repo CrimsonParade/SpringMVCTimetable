@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Изменение пароля </title>
+    <title> Edit password </title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
@@ -14,17 +14,17 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h2 th:text="'Здравствуйте, ' + ${login}"></h2>
-<h1> Введите пароли:</h1>
+<h2 th:text="'Hello, ' + ${login}"></h2>
+<h1> Enter passwords:</h1>
 <br><br>
 <form action="/editUser" method="post">
-    <input name="value" placeholder="Введите новый пароль: " style="width:50%; height: 50px; font-size: 30px"
+    <input name="value" placeholder="Enter new password: " style="width:50%; height: 50px; font-size: 30px"
            type="text">
     <br><br>
-    <input name="password" placeholder="Введите текущий пароль: " style="width:50%; height: 50px; font-size: 30px"
+    <input name="password" placeholder="Enter current password: " style="width:50%; height: 50px; font-size: 30px"
            type="text">
     <br><br>
-    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Submit</button>
 </form>
 </body>
 </html>

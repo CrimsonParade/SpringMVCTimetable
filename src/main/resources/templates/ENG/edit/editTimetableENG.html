@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Edit Timetable </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        h3 {
+            color: crimson;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h2 th:text="'Hello, ' + ${userLogin}"></h2>
+<h1> Attention! <br>
+</h1>
+<h2>
+    You have to write: <br>
+</h2>
+<h3>
+    Day Of Week: monday <br><br>
+    Lesson Number: 1 <br><br>
+    Lesson Name: Math <br><br>
+    Room Number: 333 <br><br>
+    Teacher Name: John Doe <br><br>
+</h3>
+
+<h2> Enter your lesson info:</h2>
+<br><br>
+<form action="/editTimetable" method="post">
+    <input name="dayOfWeek" placeholder="Enter Day Of Week: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
+    <br><br>
+    <input name="lessonNumber" placeholder="Enter Lesson Number: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <br><br>
+    <input name="lessonName" placeholder="Enter Lesson Name: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
+    <br><br>
+    <input name="roomNumber" placeholder="Enter Room Number: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
+    <br><br>
+    <input name="teacherName" placeholder="Enter Teacher Name: " style="width:30%; height: 50px; font-size: 30px"
+           type="text">
+    <br><br>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Submit</button>
+</form>
+<pre>
+    <h2>Timetable: </h2>
+    <li th:each="lesson : ${timetable}" th:text="${lesson}"></li>
+</pre>
+</body>
+</html>

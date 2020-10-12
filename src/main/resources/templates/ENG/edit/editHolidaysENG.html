@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Edit Holidays </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        h3 {
+            color: crimson;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h2 th:text="'Hello, ' + ${userLogin}"></h2>
+
+<h1> Attention! <br>
+</h1>
+<h2>
+    If the last school day is 30.12.2020 <br>
+    and the first school day is 05.01.2021, <br>
+    you have to write: <br>
+</h2>
+<h3>
+    Year: 2020 Month: 12 Day: 30 <br><br>
+    Year: 2021 Month: 1 Day: 5 <br><br>
+</h3>
+<h2> Enter your holidays info: <br></h2>
+<br> <br>
+<form action="/editHolidays" method="post">
+    <input name="beginYear" placeholder="Year of holidays beginning: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="beginMonth" placeholder="Month of holidays beginning: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="beginDay" placeholder="Last school day: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <br><br>
+    <input name="endYear" placeholder="Year of holidays ending: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="endMonth" placeholder="Month of holidays beginning: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <input name="endDay" placeholder="First school day: " style="width:30%; height: 50px; font-size: 30px"
+           type="number">
+    <br><br>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Submit</button>
+</form>
+<pre>
+    <h2> Holidays: </h2>
+    <li th:each="holiday : ${holidays}" th:text="${holiday}"></li>
+</pre>
+</body>
+</html>
