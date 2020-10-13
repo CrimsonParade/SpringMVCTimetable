@@ -23,7 +23,12 @@ public class BeforeNearestHolidays extends LessonCounter {
     }
 
     @Override
-    public String getHolidaysName() {
+    public String getHolidaysNameRU() {
         return "ближайших";
+    }
+
+    @Override
+    public String getHolidaysNameENG() {
+        return "nearest";
     }
 }

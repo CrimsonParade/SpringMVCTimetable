@@ -1,6 +1,6 @@
 package tk.exdeath.controller.processor.days;
 
-import tk.exdeath.controller.view.data.TimetableProcessor;
+import tk.exdeath.controller.view.data.days.TimetableProcessor;
 
 public abstract class TimetableProcessorCreator {
 

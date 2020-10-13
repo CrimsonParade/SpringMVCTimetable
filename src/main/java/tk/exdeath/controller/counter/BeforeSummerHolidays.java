@@ -14,7 +14,12 @@ public class BeforeSummerHolidays extends LessonCounter {
     }
 
     @Override
-    public String getHolidaysName() {
+    public String getHolidaysNameRU() {
         return "летних";
+    }
+
+    @Override
+    public String getHolidaysNameENG() {
+        return "summer";
     }
 }

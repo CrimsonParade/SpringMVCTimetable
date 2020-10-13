@@ -120,7 +120,9 @@ public abstract class LessonCounter {
 
     abstract long daysBeforeHolidays(String userLogin);
 
-    public abstract String getHolidaysName();
+    public abstract String getHolidaysNameRU();
+
+    public abstract String getHolidaysNameENG();
 
     public LocalDate getLastLessonDate() {
         return lastLessonDate;

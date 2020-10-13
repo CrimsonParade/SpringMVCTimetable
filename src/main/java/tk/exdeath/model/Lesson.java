@@ -63,10 +63,16 @@ public class Lesson implements Serializable {
                 " | Lesson: " + lessonName;
     }
 
-    public String toRoomAndDayOfWeek() {
+    public String toRoomAndDayOfWeekRU() {
         return "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | День недели: " + dayOfWeek;
+    }
+
+    public String toRoomAndDayOfWeekENG() {
+        return "№: " + lessonNumber +
+                " | Room: " + roomNumber +
+                " | Day Of Week: " + dayOfWeek;
     }
 
     public String getLessonName() {
