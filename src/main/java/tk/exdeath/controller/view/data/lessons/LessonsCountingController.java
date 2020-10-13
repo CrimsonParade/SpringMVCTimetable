@@ -1,12 +1,12 @@
-package tk.exdeath.controller.view.data;
+package tk.exdeath.controller.view.data.lessons;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import tk.exdeath.controller.processor.lessons.LessonCountingProcessor;
-import tk.exdeath.controller.processor.lessons.NearestHolidays;
-import tk.exdeath.controller.processor.lessons.SummerHolidays;
+import tk.exdeath.controller.processor.lessons.LessonProcessorCreator;
+import tk.exdeath.controller.processor.lessons.holidays.NearestHolidays;
+import tk.exdeath.controller.processor.lessons.holidays.SummerHolidays;
 
 import java.util.ArrayList;
 
@@ -20,13 +20,13 @@ public class LessonsCountingController {
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         ArrayList<String> lessons = new ArrayList<>();
-        LessonCountingProcessor processor;
+        LessonsBeforeHolidays holidays;
 
-        processor = new NearestHolidays();
-        lessons.add(processor.getLessonInformation(lessonName, userLogin));
+        holidays = new NearestHolidays(LessonProcessorCreator.getInstance(language));
+        lessons.add(holidays.getLessonInformation(lessonName, userLogin));
 
-        processor = new SummerHolidays();
-        lessons.add(processor.getLessonInformation(lessonName, userLogin));
+        holidays = new SummerHolidays(LessonProcessorCreator.getInstance(language));
+        lessons.add(holidays.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
         return language + "/lessonsCounting" + language;

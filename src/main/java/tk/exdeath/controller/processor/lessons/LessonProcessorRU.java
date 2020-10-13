@@ -1,18 +1,22 @@
 package tk.exdeath.controller.processor.lessons;
 
 import tk.exdeath.controller.counter.LessonCounter;
+import tk.exdeath.controller.processor.lessons.holidays.LessonCountingProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class LessonCountingProcessor {
+public class LessonProcessorRU implements LessonCountingProcessor {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
 
-    private final LessonCounter COUNTER = beforeWhatHolidays();
+    private LessonCounter counter;
 
 
-    public String getLessonInformation(String lessonName, String userLogin) {
+    @Override
+    public String getLessonInformation(String lessonName, String userLogin, LessonCounter counter) {
+
+        this.counter = counter;
         String lessonInformation;
 
         lessonInformation = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeHolidays(lessonName, userLogin);
@@ -25,25 +29,23 @@ public abstract class LessonCountingProcessor {
 
 
     private boolean lastLessonIsNotNull() {
-        return !COUNTER.getLastLessonDate().equals(NULL_DATE);
+        return !counter.getLastLessonDate().equals(NULL_DATE);
     }
 
     private int lessonsBeforeHolidays(String lessonName, String userLogin) {
-        return COUNTER.lessonsBeforeHolidays(lessonName, userLogin);
+        return counter.lessonsBeforeHolidays(lessonName, userLogin);
     }
 
     private String lastLessonDate() {
         DateTimeFormatter dayMonthYear = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        return COUNTER.getLastLessonDate().format(dayMonthYear);
+        return counter.getLastLessonDate().format(dayMonthYear);
     }
 
     private String lastLesson() {
-        return COUNTER.getLastLesson().toRoomAndDayOfWeek();
+        return counter.getLastLesson().toRoomAndDayOfWeekRU();
     }
 
     private String holidaysName() {
-        return COUNTER.getHolidaysName();
+        return counter.getHolidaysNameRU();
     }
-
-    abstract LessonCounter beforeWhatHolidays();
 }
