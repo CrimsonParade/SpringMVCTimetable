@@ -42,13 +42,13 @@
 <table class="text">
     <tr>
         <td>
-            <h2><a th:href="@{|/main?userLogin=${login}|}"> Посмотреть расписание </a></h2>
-            <h2><a href="chooseTimetable"> Верифицированные расписания </a></h2>
+            <h2><a th:href="@{|/main?language=RU&userLogin=${login}|}"> Посмотреть расписание </a></h2>
+            <h2><a href="chooseTimetable?language=RU"> Верифицированные расписания </a></h2>
         </td>
         <td class="right">
-            <h2><a th:href="@{|/editUser?userLogin=${login}|}"> Изменить пароль </a></h2>
-            <h2><a th:href="@{|/editHolidaysAuth?userLogin=${login}|}"> Изменить каникулы </a></h2>
-            <h2><a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Изменить расписание </a></h2>
+            <h2><a th:href="@{|/editUser?language=RU&userLogin=${login}|}"> Изменить пароль </a></h2>
+            <h2><a th:href="@{|/editHolidaysAuth?language=RU&userLogin=${login}|}"> Изменить каникулы </a></h2>
+            <h2><a th:href="@{|/editTimetableAuth?language=RU&userLogin=${login}|}"> Изменить расписание </a></h2>
         </td>
     </tr>
 </table>

@@ -42,13 +42,13 @@
 <table class="text">
     <tr>
         <td>
-            <h2><a th:href="@{|/main?userLogin=${login}|}"> View my timetable </a></h2>
-            <h2><a href="chooseTimetable"> View verified timetables </a></h2>
+            <h2><a th:href="@{|/main?language=ENG&userLogin=${login}|}"> View my timetable </a></h2>
+            <h2><a href="chooseTimetable?language=ENG"> View verified timetables </a></h2>
         </td>
         <td class="right">
-            <h2><a th:href="@{|/editUser?userLogin=${login}|}"> Edit Password </a></h2>
-            <h2><a th:href="@{|/editHolidaysAuth?userLogin=${login}|}"> Edit Holidays </a></h2>
-            <h2><a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Edit Timetable </a></h2>
+            <h2><a th:href="@{|/editUser?language=ENG&userLogin=${login}|}"> Edit Password </a></h2>
+            <h2><a th:href="@{|/editHolidaysAuth?language=ENG&userLogin=${login}|}"> Edit Holidays </a></h2>
+            <h2><a th:href="@{|/editTimetableAuth?language=ENG&userLogin=${login}|}"> Edit Timetable </a></h2>
         </td>
     </tr>
 </table>

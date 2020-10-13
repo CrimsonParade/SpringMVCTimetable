@@ -32,41 +32,35 @@
 
 <h2><br> Days: <br></h2>
 <p>
-    <a th:href="@{|/days?dayOfWeek=today&userLogin=${login}|}"> Today </a> |
-    <a th:href="@{|/days?dayOfWeek=tomorrow&userLogin=${login}|}"> Tomorrow </a>
+    <a th:href="@{|/days?dayOfWeek=today&language=ENG&userLogin=${login}|}"> Today </a> |
+    <a th:href="@{|/days?dayOfWeek=tomorrow&language=ENG&userLogin=${login}|}"> Tomorrow </a>
 </p>
 <p>
-    <a th:href="@{|/days?dayOfWeek=понедельник&userLogin=${login}|}"> Monday </a> |
-    <a th:href="@{|/days?dayOfWeek=вторник&userLogin=${login}|}"> Tuesday </a> |
-    <a th:href="@{|/days?dayOfWeek=среда&userLogin=${login}|}"> Wednesday </a> |
-    <a th:href="@{|/days?dayOfWeek=четверг&userLogin=${login}|}"> Thursday </a> |
-    <a th:href="@{|/days?dayOfWeek=пятница&userLogin=${login}|}"> Friday </a>
+    <a th:href="@{|/days?dayOfWeek=monday&language=ENG&userLogin=${login}|}"> Monday </a> |
+    <a th:href="@{|/days?dayOfWeek=tuesday&language=ENG&userLogin=${login}|}"> Tuesday </a> |
+    <a th:href="@{|/days?dayOfWeek=wednesday&language=ENG&userLogin=${login}|}"> Wednesday </a> |
+    <a th:href="@{|/days?dayOfWeek=thursday&language=ENG&userLogin=${login}|}"> Thursday </a> |
+    <a th:href="@{|/days?dayOfWeek=friday&language=ENG&userLogin=${login}|}"> Friday </a>
 </p>
 
 <h2><br><br> Number of Lessons before: <br></h2>
 <p>
-    <a th:href="@{|/allLessons?before=nearest&userLogin=${login}|}"> Nearest Holidays</a> |
-    <a th:href="@{|/allLessons?before=summer&userLogin=${login}|}"> Summer Holidays</a>
+    <a th:href="@{|/allLessons?before=nearest&language=ENG&userLogin=${login}|}"> Nearest Holidays</a> |
+    <a th:href="@{|/allLessons?before=summer&language=ENG&userLogin=${login}|}"> Summer Holidays</a>
 </p>
 
 <h2><br><br> Number of Lessons: <br></h2>
 <p>
-    <a th:href="@{|/lessons?lessonName=Алгебра&userLogin=${login}|}"> Math </a> |
-    <a th:href="@{|/lessons?lessonName=Физика&userLogin=${login}|}"> Physics </a> |
-    <a th:href="@{|/lessons?lessonName=Информатика&userLogin=${login}|}"> Informatics </a> |
-    <a th:href="@{|/lessons?lessonName=Геометрия&userLogin=${login}|}"> Geometry </a>
+    <a th:href="@{|/lessons?lessonName=Algebra&language=ENG&userLogin=${login}|}"> Algebra </a> |
+    <a th:href="@{|/lessons?lessonName=Physics&language=ENG&userLogin=${login}|}"> Physics </a> |
+    <a th:href="@{|/lessons?lessonName=Informatics&language=ENG&userLogin=${login}|}"> Informatics </a> |
+    <a th:href="@{|/lessons?lessonName=Geometry&language=ENG&userLogin=${login}|}"> Geometry </a>
 </p>
 <p>
-    <a th:href="@{|/lessons?lessonName=Русский&userLogin=${login}|}"> Russian </a> |
-    <a th:href="@{|/lessons?lessonName=Английский&userLogin=${login}|}"> English </a> |
-    <a th:href="@{|/lessons?lessonName=Литература&userLogin=${login}|}"> Literature </a> |
-    <a th:href="@{|/lessons?lessonName=История&userLogin=${login}|}"> History </a>
-</p>
-<p>
-    <a th:href="@{|/lessons?lessonName=Физ-ра&userLogin=${login}|}"> Physical Education </a> |
-    <a th:href="@{|/lessons?lessonName=Комп Графика&userLogin=${login}|}"> Computer Graphics </a> |
-    <a th:href="@{|/lessons?lessonName=Астрономия&userLogin=${login}|}"> Astronomy </a> |
-    <a th:href="@{|/lessons?lessonName=ОБЖ&userLogin=${login}|}"> Life Safety </a>
+    <a th:href="@{|/lessons?lessonName=Native&language=ENG&userLogin=${login}|}"> Native </a> |
+    <a th:href="@{|/lessons?lessonName=Foreign&language=ENG&userLogin=${login}|}"> Foreign </a> |
+    <a th:href="@{|/lessons?lessonName=Literature&language=ENG&userLogin=${login}|}"> Literature </a> |
+    <a th:href="@{|/lessons?lessonName=History&language=ENG&userLogin=${login}|}"> History </a>
 </p>
 </body>
 </html>
