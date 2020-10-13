@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Authentication </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+            padding-top: 2rem;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<form action="/auth" method="post">
+    <input name="move" type="radio" value="Create"> Create account
+    <br><br>
+    <input name="move" type="radio" value="Login"> Login to your account
+    <br><br><br>
+    <input name="login" placeholder="Enter your login: " style="width:50%; height: 50px; font-size: 30px" type="text">
+    <br><br>
+    <input name="password" placeholder="Enter your password: " style="width:50%; height: 50px; font-size: 30px" type="text">
+    <br><br>
+    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Submit</button>
+</form>
+</body>
+</html>

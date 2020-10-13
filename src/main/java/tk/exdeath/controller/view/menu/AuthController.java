@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU.menu;
+package tk.exdeath.controller.view.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +10,13 @@ import tk.exdeath.model.service.UserService;
 @Controller
 public class AuthController {
 
+    String language;
+
     @GetMapping("/auth")
-    public String auth() {
-        return "RU/menu/auth";
+    public String auth(@RequestParam(defaultValue = "RU") String language ) {
+
+        this.language = language;
+        return language + "/menu/auth";
     }
 
     @PostMapping("/auth")
@@ -29,9 +33,9 @@ public class AuthController {
         User testingUser = service.readUserByLogin(login);
 
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
-            return "redirect:/accountSettings?userLogin=" + testingUser.getLogin();
+            return "redirect:/accountSettings?userLogin=" + testingUser.getLogin() + "&language=" + language;
         }
-        return "RU/menu/auth";
+        return language + "/menu/auth";
     }
 
 
@@ -40,8 +44,8 @@ public class AuthController {
         User testingUser = service.readUserByLogin(login);
         if (testingUser.getLogin().equals("null")) {
             service.create(new User(login, password));
-            return "redirect:/accountSettings?userLogin=" + login;
+            return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;
         }
-        return "menu/auth";
+        return language + "/menu/auth";
     }
 }

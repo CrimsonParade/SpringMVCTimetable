@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU;
+package tk.exdeath.controller.view.data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ public class LessonsCountingController {
 
     @GetMapping("/lessons")
     public String lessonsCounting(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam(defaultValue = "") String lessonName,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -28,6 +29,6 @@ public class LessonsCountingController {
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return "RU/lessonsCounting";
+        return language + "/lessonsCounting";
     }
 }

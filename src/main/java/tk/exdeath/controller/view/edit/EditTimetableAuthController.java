@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU.edit;
+package tk.exdeath.controller.view.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,20 +9,24 @@ import tk.exdeath.model.User;
 import tk.exdeath.model.service.UserService;
 
 @Controller
-public class EditHolidaysAuthController {
+public class EditTimetableAuthController {
 
     String login;
+    String language;
 
-    @GetMapping("/editHolidaysAuth")
+    @GetMapping("/editTimetableAuth")
     public String auth(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
+
+        this.language = language;
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return "RU/edit/editHolidaysAuth";
+        return language + "/edit/editTimetableAuth";
     }
 
-    @PostMapping("/editHolidaysAuth")
+    @PostMapping("/editTimetableAuth")
     public String passwordCheck(
             @RequestParam(defaultValue = "") String password, Model model) {
 
@@ -30,10 +34,10 @@ public class EditHolidaysAuthController {
         User updatableUser = service.readUserByLogin(login);
 
         if (updatableUser.getPassword().equals(password)) {
-            return "redirect:/editHolidays?userLogin=" + login;
+            return "redirect:/editTimetable?userLogin=" + login + "&language=" + language;
         }
 
-        return "RU/edit/editHolidaysAuth";
+        return language + "/edit/editTimetableAuth";
     }
 
 }

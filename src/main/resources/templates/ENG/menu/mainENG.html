@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Timetable </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+            padding-top: 5rem;
+            text-align: center;
+        }
+
+        A {
+            font-size: 30px;
+            text-decoration: none;
+            color: crimson;
+        }
+
+        A:visited {
+            color: blue;
+        }
+
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1> Click on the link below to see the timetable or number of lessons: <br><br></h1>
+
+<h2><br> Days: <br></h2>
+<p>
+    <a th:href="@{|/days?dayOfWeek=today&userLogin=${login}|}"> Today </a> |
+    <a th:href="@{|/days?dayOfWeek=tomorrow&userLogin=${login}|}"> Tomorrow </a>
+</p>
+<p>
+    <a th:href="@{|/days?dayOfWeek=понедельник&userLogin=${login}|}"> Monday </a> |
+    <a th:href="@{|/days?dayOfWeek=вторник&userLogin=${login}|}"> Tuesday </a> |
+    <a th:href="@{|/days?dayOfWeek=среда&userLogin=${login}|}"> Wednesday </a> |
+    <a th:href="@{|/days?dayOfWeek=четверг&userLogin=${login}|}"> Thursday </a> |
+    <a th:href="@{|/days?dayOfWeek=пятница&userLogin=${login}|}"> Friday </a>
+</p>
+
+<h2><br><br> Number of Lessons before: <br></h2>
+<p>
+    <a th:href="@{|/allLessons?before=nearest&userLogin=${login}|}"> Nearest Holidays</a> |
+    <a th:href="@{|/allLessons?before=summer&userLogin=${login}|}"> Summer Holidays</a>
+</p>
+
+<h2><br><br> Number of Lessons: <br></h2>
+<p>
+    <a th:href="@{|/lessons?lessonName=Алгебра&userLogin=${login}|}"> Math </a> |
+    <a th:href="@{|/lessons?lessonName=Физика&userLogin=${login}|}"> Physics </a> |
+    <a th:href="@{|/lessons?lessonName=Информатика&userLogin=${login}|}"> Informatics </a> |
+    <a th:href="@{|/lessons?lessonName=Геометрия&userLogin=${login}|}"> Geometry </a>
+</p>
+<p>
+    <a th:href="@{|/lessons?lessonName=Русский&userLogin=${login}|}"> Russian </a> |
+    <a th:href="@{|/lessons?lessonName=Английский&userLogin=${login}|}"> English </a> |
+    <a th:href="@{|/lessons?lessonName=Литература&userLogin=${login}|}"> Literature </a> |
+    <a th:href="@{|/lessons?lessonName=История&userLogin=${login}|}"> History </a>
+</p>
+<p>
+    <a th:href="@{|/lessons?lessonName=Физ-ра&userLogin=${login}|}"> Physical Education </a> |
+    <a th:href="@{|/lessons?lessonName=Комп Графика&userLogin=${login}|}"> Computer Graphics </a> |
+    <a th:href="@{|/lessons?lessonName=Астрономия&userLogin=${login}|}"> Astronomy </a> |
+    <a th:href="@{|/lessons?lessonName=ОБЖ&userLogin=${login}|}"> Life Safety </a>
+</p>
+</body>
+</html>

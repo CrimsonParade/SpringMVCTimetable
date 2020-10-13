@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Start Page </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+            padding-top: 5rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+
+        A:visited {
+            color: blue;
+        }
+
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1> Welcome to the worst website ever <br><br></h1>
+<h2> What r u gonna do? </h2>
+<br><br><br><br>
+<h1><a href="chooseTimetable"> View timetable without authorization </a></h1>
+<br><br><br><br>
+<h1><a href="auth"> Enter account </a></h1>
+</body>
+</html>

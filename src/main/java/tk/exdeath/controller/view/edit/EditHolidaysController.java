@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU.edit;
+package tk.exdeath.controller.view.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ import java.time.temporal.ChronoUnit;
 @Controller
 public class EditHolidaysController {
 
+    String language;
     String userLogin;
     User user;
     UserService userService = new UserService();
@@ -22,14 +23,16 @@ public class EditHolidaysController {
 
     @GetMapping("/editHolidays")
     public String edit(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam String userLogin, Model model) {
 
+        this.language = language;
         this.userLogin = userLogin;
         this.user = userService.readUserByLogin(userLogin);
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "RU/edit/editHolidays";
+        return language + "/edit/editHolidays";
     }
 
 
@@ -53,7 +56,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return "RU/edit/editHolidays";
+        return language + "/edit/editHolidays";
     }
 
 }

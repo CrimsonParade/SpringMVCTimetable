@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU;
+package tk.exdeath.controller.view.data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +17,7 @@ public class TimetableByDayOfWeekController {
 
     @GetMapping("/days")
     public String timetableByDayOfWeek(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam(defaultValue = "today") String dayOfWeek,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -29,6 +30,6 @@ public class TimetableByDayOfWeekController {
 
         model.addAttribute("dayOfWeek", dayOfWeek);
         model.addAttribute("timetable", TimetableByDayOfWeekProcessor.getTimetable(dayOfWeek, userLogin));
-        return "RU/timetableByDayOfWeek";
+        return language + "/timetableByDayOfWeek";
     }
 }

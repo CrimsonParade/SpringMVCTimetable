@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU.edit;
+package tk.exdeath.controller.view.edit;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 public class EditTimetableController {
 
+    String language;
     String userLogin;
     User user;
     UserService userService = new UserService();
@@ -22,14 +23,16 @@ public class EditTimetableController {
 
     @GetMapping("/editTimetable")
     public String edit(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam String userLogin, Model model) {
 
+        this.language = language;
         this.userLogin = userLogin;
         this.user = userService.readUserByLogin(userLogin);
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "RU/edit/editTimetable";
+        return language + "/edit/editTimetable";
     }
 
 
@@ -47,7 +50,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return "RU/edit/editTimetable";
+        return language + "/edit/editTimetable";
     }
 
 

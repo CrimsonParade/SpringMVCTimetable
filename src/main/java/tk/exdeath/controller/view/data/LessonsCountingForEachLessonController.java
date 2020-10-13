@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU;
+package tk.exdeath.controller.view.data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +16,7 @@ public class LessonsCountingForEachLessonController {
 
     @GetMapping("/allLessons")
     public String lessonsCountingForEachLesson(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam(defaultValue = "nearest") String before,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
@@ -28,7 +29,7 @@ public class LessonsCountingForEachLessonController {
         }
 
         model.addAttribute("timetable", lessons);
-        return "RU/lessonsCountingForEachLesson";
+        return language + "/lessonsCountingForEachLesson";
     }
 
     LessonCountingProcessor whatHolidays(String holidaysName) {

@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.RU.menu;
+package tk.exdeath.controller.view.menu;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +10,11 @@ public class AccountSettingsController {
 
     @GetMapping("/accountSettings")
     public String main(
+            @RequestParam(defaultValue = "RU") String language,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         model.addAttribute("login", userLogin);
-        return "RU/menu/accountSettings";
+        return language + "/menu/accountSettings";
     }
 
 }

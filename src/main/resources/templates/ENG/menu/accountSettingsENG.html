@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Menu </title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body {
+            color: white;
+            background: black;
+        }
+
+        table.text {
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        table.text td {
+            width: 50%;
+            vertical-align: top;
+        }
+
+        td.right {
+            text-align: right;
+        }
+
+        A {
+            text-decoration: none;
+            color: crimson;
+        }
+
+        A:visited {
+            color: blue;
+        }
+
+        A:active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<table class="text">
+    <tr>
+        <td>
+            <h2><a th:href="@{|/main?userLogin=${login}|}"> View my timetable </a></h2>
+            <h2><a href="chooseTimetable"> View verified timetables </a></h2>
+        </td>
+        <td class="right">
+            <h2><a th:href="@{|/editUser?userLogin=${login}|}"> Edit Password </a></h2>
+            <h2><a th:href="@{|/editHolidaysAuth?userLogin=${login}|}"> Edit Holidays </a></h2>
+            <h2><a th:href="@{|/editTimetableAuth?userLogin=${login}|}"> Edit Timetable </a></h2>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
