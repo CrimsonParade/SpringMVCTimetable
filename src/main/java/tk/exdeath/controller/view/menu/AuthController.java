@@ -16,7 +16,7 @@ public class AuthController {
     public String auth(@RequestParam(defaultValue = "RU") String language ) {
 
         this.language = language;
-        return language + "/menu/auth";
+        return language + "/menu/auth" + language;
     }
 
     @PostMapping("/auth")
@@ -35,7 +35,7 @@ public class AuthController {
         if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
             return "redirect:/accountSettings?userLogin=" + testingUser.getLogin() + "&language=" + language;
         }
-        return language + "/menu/auth";
+        return language + "/menu/auth" + language;
     }
 
 
@@ -46,6 +46,6 @@ public class AuthController {
             service.create(new User(login, password));
             return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;
         }
-        return language + "/menu/auth";
+        return language + "/menu/auth" + language;
     }
 }

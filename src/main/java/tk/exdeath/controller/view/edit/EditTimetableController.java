@@ -32,7 +32,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return language + "/edit/editTimetable";
+        return language + "/edit/editTimetable" + language;
     }
 
 
@@ -50,7 +50,7 @@ public class EditTimetableController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("timetable", getSortedTimetable());
-        return language + "/edit/editTimetable";
+        return language + "/edit/editTimetable" + language;
     }
 
 

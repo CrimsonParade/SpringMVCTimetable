@@ -14,6 +14,6 @@ public class MainController {
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         model.addAttribute("login", userLogin);
-        return language + "/menu/main";
+        return language + "/menu/main" + language;
     }
 }

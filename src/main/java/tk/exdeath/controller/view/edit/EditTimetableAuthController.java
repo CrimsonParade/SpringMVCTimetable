@@ -23,7 +23,7 @@ public class EditTimetableAuthController {
         this.language = language;
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return language + "/edit/editTimetableAuth";
+        return language + "/edit/editTimetableAuth" + language;
     }
 
     @PostMapping("/editTimetableAuth")
@@ -37,7 +37,7 @@ public class EditTimetableAuthController {
             return "redirect:/editTimetable?userLogin=" + login + "&language=" + language;
         }
 
-        return language + "/edit/editTimetableAuth";
+        return language + "/edit/editTimetableAuth" + language;
     }
 
 }

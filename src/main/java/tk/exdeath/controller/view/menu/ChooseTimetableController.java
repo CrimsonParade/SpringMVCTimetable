@@ -9,6 +9,6 @@ public class ChooseTimetableController {
 
     @GetMapping("/chooseTimetable")
     public String chooseTimetable(@RequestParam(defaultValue = "RU") String language ) {
-        return language + "/menu/chooseTimetable";
+        return language + "/menu/chooseTimetable" + language;
     }
 }

@@ -29,7 +29,7 @@ public class LessonsCountingForEachLessonController {
         }
 
         model.addAttribute("timetable", lessons);
-        return language + "/lessonsCountingForEachLesson";
+        return language + "/lessonsCountingForEachLesson" + language;
     }
 
     LessonCountingProcessor whatHolidays(String holidaysName) {

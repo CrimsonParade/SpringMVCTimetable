@@ -22,7 +22,7 @@ public class EditHolidaysAuthController {
         this.language = language;
         login = userLogin;
         model.addAttribute("login", userLogin);
-        return language + "/edit/editHolidaysAuth";
+        return language + "/edit/editHolidaysAuth" + language;
     }
 
     @PostMapping("/editHolidaysAuth")
@@ -36,7 +36,7 @@ public class EditHolidaysAuthController {
             return "redirect:/editHolidays?userLogin=" + login + "&language=" + language;
         }
 
-        return language + "/edit/editHolidaysAuth";
+        return language + "/edit/editHolidaysAuth" + language;
     }
 
 }

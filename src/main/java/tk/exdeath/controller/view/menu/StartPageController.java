@@ -9,6 +9,6 @@ public class StartPageController {
 
     @GetMapping("/")
     public String startPage(@RequestParam(defaultValue = "RU") String language ) {
-        return language + "/menu/startPage";
+        return language + "/menu/startPage" + language;
     }
 }

@@ -14,7 +14,7 @@ public class AccountSettingsController {
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
         model.addAttribute("login", userLogin);
-        return language + "/menu/accountSettings";
+        return language + "/menu/accountSettings" + language;
     }
 
 }

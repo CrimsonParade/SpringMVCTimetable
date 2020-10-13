@@ -29,6 +29,6 @@ public class LessonsCountingController {
         lessons.add(processor.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return language + "/lessonsCounting";
+        return language + "/lessonsCounting" + language;
     }
 }

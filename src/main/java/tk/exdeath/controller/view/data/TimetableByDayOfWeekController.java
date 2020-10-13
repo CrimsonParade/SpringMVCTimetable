@@ -30,6 +30,6 @@ public class TimetableByDayOfWeekController {
 
         model.addAttribute("dayOfWeek", dayOfWeek);
         model.addAttribute("timetable", TimetableByDayOfWeekProcessor.getTimetable(dayOfWeek, userLogin));
-        return language + "/timetableByDayOfWeek";
+        return language + "/timetableByDayOfWeek" + language;
     }
 }

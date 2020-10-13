@@ -32,7 +32,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return language + "/edit/editHolidays";
+        return language + "/edit/editHolidays" + language;
     }
 
 
@@ -56,7 +56,7 @@ public class EditHolidaysController {
 
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("holidays", user.getHolidays());
-        return language + "/edit/editHolidays";
+        return language + "/edit/editHolidays" + language;
     }
 
 }
