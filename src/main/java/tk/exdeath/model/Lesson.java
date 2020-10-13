@@ -41,17 +41,26 @@ public class Lesson implements Serializable {
 
     @Override
     public String toString() {
-        return "\nДень недели: " + dayOfWeek +
-                " | Урок номер: " + lessonNumber +
-                " | Кабинет: " + roomNumber +
-                " | Урок: " + lessonName +
-                " | Учитель: " + teacherName;
+        return "Lesson{" +
+                "id=" + id +
+                ", lessonNumber=" + lessonNumber +
+                ", dayOfWeek='" + dayOfWeek + '\'' +
+                ", lessonName='" + lessonName + '\'' +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                '}';
     }
 
-    public String toRoomAndLesson() {
+    public String toRoomAndLessonRU() {
         return "№: " + lessonNumber +
                 " | Кабинет: " + roomNumber +
                 " | Урок: " + lessonName;
+    }
+
+    public String toRoomAndLessonENG() {
+        return "№: " + lessonNumber +
+                " | Room: " + roomNumber +
+                " | Lesson: " + lessonName;
     }
 
     public String toRoomAndDayOfWeek() {
