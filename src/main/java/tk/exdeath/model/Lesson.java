@@ -39,16 +39,26 @@ public class Lesson implements Serializable {
         this.user = user;
     }
 
+
+    public String getLessonName() {
+        return lessonName;
+    }
+
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public int getLessonNumber() {
+        return lessonNumber;
+    }
+
     @Override
     public String toString() {
-        return "Lesson{" +
-                "id=" + id +
-                ", lessonNumber=" + lessonNumber +
-                ", dayOfWeek='" + dayOfWeek + '\'' +
-                ", lessonName='" + lessonName + '\'' +
-                ", roomNumber='" + roomNumber + '\'' +
-                ", teacherName='" + teacherName + '\'' +
-                '}';
+        return "Lesson Number: " + lessonNumber +
+                ", Day Of Week: " + dayOfWeek +
+                ", Lesson Name: " + lessonName +
+                ", Room Number: " + roomNumber +
+                ", Teacher Name: " + teacherName;
     }
 
     public String toRoomAndLessonRU() {
@@ -73,17 +83,5 @@ public class Lesson implements Serializable {
         return "№: " + lessonNumber +
                 " | Room: " + roomNumber +
                 " | Day Of Week: " + dayOfWeek;
-    }
-
-    public String getLessonName() {
-        return lessonName;
-    }
-
-    public String getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public int getLessonNumber() {
-        return lessonNumber;
     }
 }

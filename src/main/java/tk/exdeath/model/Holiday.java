@@ -37,10 +37,10 @@ public class Holiday implements Serializable {
 
     @Override
     public String toString() {
-        return  "Длина каникул: " + length +
-                ", Год: " + year +
-                ", Месяц: " + month +
-                ", День: " + day;
+        return  "Holiday length: " + length +
+                ", Year: " + year +
+                ", Month: " + month +
+                ", Day: " + day;
     }
 
     @Override
