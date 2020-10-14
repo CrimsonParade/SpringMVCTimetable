@@ -1,6 +1,5 @@
 package tk.exdeath.controller.processor.days;
 
-import tk.exdeath.controller.view.data.days.TimetableProcessor;
 import tk.exdeath.model.Lesson;
 import tk.exdeath.model.service.UserService;
 

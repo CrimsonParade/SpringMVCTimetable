@@ -23,13 +23,6 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Holiday> holidays;
 
-    @Override
-    public String toString() {
-        return "Login: " + login +
-                " Password: " + password +
-                " ID: " + userID;
-    }
-
     public User() {
     }
 
@@ -37,7 +30,13 @@ public class User implements Serializable {
         this.login = login;
         this.password = password;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Login: " + login +
+                ", Password: " + password +
+                ", ID: " + userID;
+    }
 
     public String getLogin() {
         return login;

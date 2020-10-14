@@ -4,30 +4,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import tk.exdeath.controller.processor.lessons.holidays.Holidays;
 import tk.exdeath.controller.processor.lessons.holidays.HolidaysCreator;
-import tk.exdeath.model.service.UserService;
 
 import java.util.ArrayList;
 
 @Controller
-public class LessonsCountingForEachLessonController {
+public class LessonsController {
 
-    @GetMapping("/allLessons")
-    public String lessonsCountingForEachLesson(
+    @GetMapping("/lessons")
+    public String lessonsCounting(
             @RequestParam(defaultValue = "RU") String language,
-            @RequestParam(defaultValue = "nearest") String before,
+            @RequestParam(defaultValue = "") String lessonName,
             @RequestParam(defaultValue = "null") String userLogin, Model model) {
 
-        UserService reader = new UserService();
-
-        LessonsBeforeHolidays holidays = HolidaysCreator.getInstance(before, language);
         ArrayList<String> lessons = new ArrayList<>();
+        Holidays holidays;
 
-        for (String lessonName : reader.readAllLessonNames(userLogin)) {
-            lessons.add(holidays.getLessonInformation(lessonName, userLogin));
-        }
+        holidays = HolidaysCreator.getInstance("nearest", language);
+        lessons.add(holidays.getLessonInformation(lessonName, userLogin));
+
+        holidays = HolidaysCreator.getInstance("summer", language);
+        lessons.add(holidays.getLessonInformation(lessonName, userLogin));
 
         model.addAttribute("timetable", lessons);
-        return language + "/lessonsCountingForEachLesson" + language;
+        return language + "/lessonsCounting" + language;
     }
 }

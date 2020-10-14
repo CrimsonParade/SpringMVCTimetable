@@ -37,7 +37,7 @@ public class Holiday implements Serializable {
 
     @Override
     public String toString() {
-        return  "Holiday length: " + length +
+        return "Holiday length: " + length +
                 ", Year: " + year +
                 ", Month: " + month +
                 ", Day: " + day;

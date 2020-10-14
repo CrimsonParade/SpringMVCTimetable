@@ -30,9 +30,9 @@ public class EditHolidaysAuthController {
             @RequestParam(defaultValue = "") String password, Model model) {
 
         UserService service = new UserService();
-        User updatableUser = service.readUserByLogin(login);
+        User userToCheck = service.readUserByLogin(login);
 
-        if (updatableUser.getPassword().equals(password)) {
+        if (userToCheck.getPassword().equals(password)) {
             return "redirect:/editHolidays?userLogin=" + login + "&language=" + language;
         }
 

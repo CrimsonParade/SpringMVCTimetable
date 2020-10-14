@@ -1,4 +1,4 @@
-package tk.exdeath.controller.view.data.days;
+package tk.exdeath.controller.processor.days;
 
 import java.util.List;
 

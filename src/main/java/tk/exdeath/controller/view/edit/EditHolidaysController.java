@@ -47,8 +47,7 @@ public class EditHolidaysController {
 
         LocalDate beginDate = LocalDate.of(beginYear, beginMonth, beginDay);
         LocalDate endDate = LocalDate.of(endYear, endMonth, endDay);
-
-        int length = (int)ChronoUnit.DAYS.between(beginDate, endDate);
+        int length = (int) ChronoUnit.DAYS.between(beginDate, endDate);
 
         Holiday holiday = new Holiday(length, beginYear, beginMonth, beginDay, user);
         user.addHoliday(holiday);

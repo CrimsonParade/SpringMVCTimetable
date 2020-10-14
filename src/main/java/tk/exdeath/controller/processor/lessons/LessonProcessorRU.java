@@ -1,25 +1,20 @@
 package tk.exdeath.controller.processor.lessons;
 
 import tk.exdeath.controller.counter.LessonCounter;
-import tk.exdeath.controller.processor.lessons.holidays.LessonCountingProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class LessonProcessorRU implements LessonCountingProcessor {
+public class LessonProcessorRU implements LessonProcessor {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
-
     private LessonCounter counter;
-
 
     @Override
     public String getLessonInformation(String lessonName, String userLogin, LessonCounter counter) {
 
         this.counter = counter;
-        String lessonInformation;
-
-        lessonInformation = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeHolidays(lessonName, userLogin);
+        String lessonInformation = "Предмет: " + lessonName + "\nКоличество уроков до " + holidaysName() + " каникул: " + lessonsBeforeHolidays(lessonName, userLogin);
 
         if (lastLessonIsNotNull()) {
             lessonInformation += "\nДата последнего урока: " + lastLessonDate() + "\nИнформация о нём: " + lastLesson();

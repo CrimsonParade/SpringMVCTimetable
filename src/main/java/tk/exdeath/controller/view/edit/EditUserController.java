@@ -21,6 +21,7 @@ public class EditUserController {
 
         this.language = language;
         login = userLogin;
+
         model.addAttribute("login", userLogin);
         return language + "/edit/editUser" + language;
     }

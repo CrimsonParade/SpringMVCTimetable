@@ -1,13 +1,13 @@
 package tk.exdeath.controller.processor.lessons.holidays;
 
 import tk.exdeath.controller.counter.BeforeSummerHolidays;
-import tk.exdeath.controller.view.data.lessons.LessonsBeforeHolidays;
+import tk.exdeath.controller.processor.lessons.LessonProcessor;
 
-public class SummerHolidays implements LessonsBeforeHolidays {
+public class SummerHolidays implements Holidays {
 
-    private LessonCountingProcessor processor;
+    private final LessonProcessor processor;
 
-    public SummerHolidays(LessonCountingProcessor processor) {
+    public SummerHolidays(LessonProcessor processor) {
         this.processor = processor;
     }
 

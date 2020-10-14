@@ -13,9 +13,11 @@ public class AuthController {
     String language;
 
     @GetMapping("/auth")
-    public String auth(@RequestParam(defaultValue = "RU") String language ) {
+    public String auth(
+            @RequestParam(defaultValue = "RU") String language) {
 
         this.language = language;
+
         return language + "/menu/auth" + language;
     }
 
@@ -30,18 +32,20 @@ public class AuthController {
         }
 
         UserService service = new UserService();
-        User testingUser = service.readUserByLogin(login);
+        User userToCheck = service.readUserByLogin(login);
 
-        if (testingUser.getLogin().equals(login) && testingUser.getPassword().equals(password)) {
-            return "redirect:/accountSettings?userLogin=" + testingUser.getLogin() + "&language=" + language;
+        if (userToCheck.getLogin().equals(login) && userToCheck.getPassword().equals(password)) {
+            return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;
         }
         return language + "/menu/auth" + language;
     }
 
 
     public String createUser(String login, String password) {
+
         UserService service = new UserService();
         User testingUser = service.readUserByLogin(login);
+
         if (testingUser.getLogin().equals("null")) {
             service.create(new User(login, password));
             return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;

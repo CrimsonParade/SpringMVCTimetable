@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class StartPageController {
 
     @GetMapping("/")
-    public String startPage(@RequestParam(defaultValue = "RU") String language ) {
+    public String startPage(
+            @RequestParam(defaultValue = "RU") String language) {
         return language + "/menu/startPage" + language;
     }
 }

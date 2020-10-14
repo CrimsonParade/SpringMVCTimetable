@@ -11,10 +11,10 @@ import javax.persistence.criteria.Root;
 
 public class UserDAO {
 
-    private Session session = HibernateFactory.getSessionFactory().openSession();
-    private CriteriaBuilder builder = session.getCriteriaBuilder();
-    private CriteriaQuery<User> criteria = builder.createQuery(User.class);
-    private Root<User> root = criteria.from(User.class);
+    private final Session session = HibernateFactory.getSessionFactory().openSession();
+    private final CriteriaBuilder builder = session.getCriteriaBuilder();
+    private final CriteriaQuery<User> criteria = builder.createQuery(User.class);
+    private final Root<User> root = criteria.from(User.class);
 
     public void create(User user) {
         Transaction transaction = session.beginTransaction();

@@ -22,6 +22,7 @@ public class EditTimetableAuthController {
 
         this.language = language;
         login = userLogin;
+
         model.addAttribute("login", userLogin);
         return language + "/edit/editTimetableAuth" + language;
     }
@@ -31,9 +32,9 @@ public class EditTimetableAuthController {
             @RequestParam(defaultValue = "") String password, Model model) {
 
         UserService service = new UserService();
-        User updatableUser = service.readUserByLogin(login);
+        User userToCheck = service.readUserByLogin(login);
 
-        if (updatableUser.getPassword().equals(password)) {
+        if (userToCheck.getPassword().equals(password)) {
             return "redirect:/editTimetable?userLogin=" + login + "&language=" + language;
         }
 

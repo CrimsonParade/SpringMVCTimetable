@@ -1,6 +1,5 @@
 package tk.exdeath.controller.processor.days;
 
-import tk.exdeath.controller.view.data.days.TimetableProcessor;
 import tk.exdeath.model.Lesson;
 import tk.exdeath.model.service.UserService;
 
@@ -32,7 +31,7 @@ public class TimetableProcessorENG implements TimetableProcessor {
         List<String> timetable = new ArrayList<>();
 
         if (isHoliday(dayOfWeek, userLogin)) {
-            timetable.add("Chill!");
+            timetable.add("Day off!");
         } else {
             for (Lesson lesson : READER.readLessonsByDayOfWeek(dayOfWeek, userLogin)) {
                 timetable.add(lesson.toRoomAndLessonENG());

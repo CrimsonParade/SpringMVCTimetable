@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ChooseTimetableController {
 
     @GetMapping("/chooseTimetable")
-    public String chooseTimetable(@RequestParam(defaultValue = "RU") String language ) {
+    public String chooseTimetable(
+            @RequestParam(defaultValue = "RU") String language) {
         return language + "/menu/chooseTimetable" + language;
     }
 }
