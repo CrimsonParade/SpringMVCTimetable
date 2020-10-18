@@ -5,9 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import tk.exdeath.controller.view.LoggedUser;
 import tk.exdeath.model.Lesson;
 import tk.exdeath.model.User;
-import tk.exdeath.model.service.UserService;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,24 +15,20 @@ import java.util.List;
 @Controller
 public class EditTimetableController {
 
-    String language;
-    String userLogin;
+    String path;
+    String login;
     User user;
-    UserService userService = new UserService();
-
 
     @GetMapping("/editTimetable")
-    public String edit(
-            @RequestParam(defaultValue = "RU") String language,
-            @RequestParam String userLogin, Model model) {
+    public String edit(Model model) {
 
-        this.language = language;
-        this.userLogin = userLogin;
-        this.user = userService.readUserByLogin(userLogin);
+        path = LoggedUser.getLanguage() + "/edit/editTimetable" + LoggedUser.getLanguage();
+        login = LoggedUser.getLogin();
+        user = LoggedUser.getUser();
 
-        model.addAttribute("userLogin", userLogin);
+        model.addAttribute("userLogin", login);
         model.addAttribute("timetable", getSortedTimetable());
-        return language + "/edit/editTimetable" + language;
+        return path;
     }
 
 
@@ -46,16 +42,15 @@ public class EditTimetableController {
 
         Lesson lesson = new Lesson(lessonNumber, dayOfWeek, lessonName, roomNumber, teacherName, user);
         user.addLesson(lesson);
-        userService.update(user);
+        LoggedUser.getUserService().update(user);
 
-        model.addAttribute("userLogin", userLogin);
+        model.addAttribute("userLogin", login);
         model.addAttribute("timetable", getSortedTimetable());
-        return language + "/edit/editTimetable" + language;
+        return path;
     }
 
 
     private List<Lesson> getSortedTimetable() {
-
         List<Lesson> lessons = user.getLessons();
         lessons.sort(Comparator.comparing(Lesson::getDayOfWeek));
         return lessons;

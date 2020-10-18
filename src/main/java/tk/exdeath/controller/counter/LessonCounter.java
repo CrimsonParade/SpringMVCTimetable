@@ -20,11 +20,11 @@ public abstract class LessonCounter {
 
 
     public int lessonsBeforeHolidays(String lessonName, String userLogin) {
+        holidays = getSortedHolidays(userLogin);
         LocalDate lessonDate = dateWithoutHolidays();
         int i = counterWithoutHolidays(lessonDate);
         int daysBeforeHolidays = (int) daysBeforeHolidays(userLogin);
         int numberOfLessons = 0;
-        holidays = getSortedHolidays(userLogin);
 
         while (i <= daysBeforeHolidays) {
             for (Lesson lesson : userService.readLessonsByDayOfWeek(lessonDate.format(DateTimeFormatter.ofPattern("EEEE")), userLogin)) {

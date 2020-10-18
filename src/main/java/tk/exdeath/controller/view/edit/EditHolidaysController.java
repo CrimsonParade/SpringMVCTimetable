@@ -5,9 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import tk.exdeath.controller.view.LoggedUser;
 import tk.exdeath.model.Holiday;
 import tk.exdeath.model.User;
-import tk.exdeath.model.service.UserService;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -15,24 +15,20 @@ import java.time.temporal.ChronoUnit;
 @Controller
 public class EditHolidaysController {
 
-    String language;
-    String userLogin;
+    String path;
+    String login;
     User user;
-    UserService userService = new UserService();
-
 
     @GetMapping("/editHolidays")
-    public String edit(
-            @RequestParam(defaultValue = "RU") String language,
-            @RequestParam String userLogin, Model model) {
+    public String edit(Model model) {
 
-        this.language = language;
-        this.userLogin = userLogin;
-        this.user = userService.readUserByLogin(userLogin);
+        path = LoggedUser.getLanguage() + "/edit/editHolidays" + LoggedUser.getLanguage();
+        login = LoggedUser.getLogin();
+        user = LoggedUser.getUser();
 
-        model.addAttribute("userLogin", userLogin);
+        model.addAttribute("userLogin", login);
         model.addAttribute("holidays", user.getHolidays());
-        return language + "/edit/editHolidays" + language;
+        return path;
     }
 
 
@@ -51,11 +47,10 @@ public class EditHolidaysController {
 
         Holiday holiday = new Holiday(length, beginYear, beginMonth, beginDay, user);
         user.addHoliday(holiday);
-        userService.update(user);
+        LoggedUser.getUserService().update(user);
 
-        model.addAttribute("userLogin", userLogin);
+        model.addAttribute("userLogin", login);
         model.addAttribute("holidays", user.getHolidays());
-        return language + "/edit/editHolidays" + language;
+        return path;
     }
-
 }
