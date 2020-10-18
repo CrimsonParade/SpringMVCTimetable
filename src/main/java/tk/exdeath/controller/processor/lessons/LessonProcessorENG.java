@@ -15,6 +15,7 @@ public class LessonProcessorENG implements LessonProcessor {
     public String getLessonInformation(String lessonName, String userLogin, LessonCounter counter) {
 
         this.counter = counter;
+        this.counter.setLocale(Locale.ENGLISH);
         String lessonInformation = "Lesson: " + lessonName + "\nLessons before " + holidaysName() + " holidays: " + lessonsBeforeHolidays(lessonName, userLogin);
 
         if (lastLessonIsNotNull()) {

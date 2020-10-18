@@ -9,15 +9,16 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public abstract class LessonCounter {
 
     private final LocalDate NULL_DATE = LocalDate.MIN;
     private final UserService userService = new UserService();
+    private DateTimeFormatter dayOfWeekFormat = DateTimeFormatter.ofPattern("EEEE");
     private Lesson lastLesson;
     private LocalDate lastLessonDate = NULL_DATE;
     private List<Holiday> holidays;
-
 
     public int lessonsBeforeHolidays(String lessonName, String userLogin) {
         holidays = getSortedHolidays(userLogin);
@@ -27,7 +28,7 @@ public abstract class LessonCounter {
         int numberOfLessons = 0;
 
         while (i <= daysBeforeHolidays) {
-            for (Lesson lesson : userService.readLessonsByDayOfWeek(lessonDate.format(DateTimeFormatter.ofPattern("EEEE")), userLogin)) {
+            for (Lesson lesson : userService.readLessonsByDayOfWeek(lessonDate.format(dayOfWeekFormat), userLogin)) {
                 if (lesson.getLessonName().equals(lessonName)) {
                     lastLesson = lesson;
                     lastLessonDate = lessonDate;
@@ -103,5 +104,9 @@ public abstract class LessonCounter {
 
     public Lesson getLastLesson() {
         return lastLesson;
+    }
+
+    public void setLocale(Locale locale) {
+        dayOfWeekFormat = DateTimeFormatter.ofPattern("EEEE", locale);
     }
 }
