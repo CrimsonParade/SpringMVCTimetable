@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import tk.exdeath.controller.view.LoggedUser;
 import tk.exdeath.model.User;
 import tk.exdeath.model.service.UserService;
 
@@ -11,45 +12,55 @@ import tk.exdeath.model.service.UserService;
 public class AuthController {
 
     String language;
+    String path;
+    User user;
+    UserService userService;
 
     @GetMapping("/auth")
     public String auth(
             @RequestParam(defaultValue = "RU") String language) {
 
         this.language = language;
+        path = language + "/menu/auth" + language;
+        userService = LoggedUser.getUserService();
 
-        return language + "/menu/auth" + language;
+        return path;
     }
 
     @PostMapping("/auth")
     public String passCheck(
             @RequestParam String login,
             @RequestParam String password,
-            @RequestParam(defaultValue = "Login") String move) {
+            @RequestParam(defaultValue = "SignIn") String move) {
+
+        user = userService.readUserByLogin(login);
 
         if (move.equals("Create")) {
             return createUser(login, password);
         }
-
-        UserService service = new UserService();
-        User userToCheck = service.readUserByLogin(login);
-
-        if (userToCheck.getLogin().equals(login) && userToCheck.getPassword().equals(password)) {
-            return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;
-        }
-        return language + "/menu/auth" + language;
+        return signIn(login, password);
     }
 
 
-    public String createUser(String login, String password) {
-
-        UserService service = new UserService();
-        User testingUser = service.readUserByLogin(login);
-
-        if (testingUser.getLogin().equals("null")) {
-            service.create(new User(login, password));
-            return "redirect:/accountSettings?userLogin=" + login + "&language=" + language;
+    private String createUser(String login, String password) {
+        if (user.getLogin().equals("null")) {
+            userService.create(new User(login, password));
+            authUser(login);
+            return "redirect:/accountSettings";
         }
-        return language + "/menu/auth" + language;
+        return path;
+    }
+
+    private String signIn(String login, String password) {
+        if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+            authUser(login);
+            return "redirect:/accountSettings";
+        }
+        return path;
+    }
+
+    private void authUser(String login) {
+        LoggedUser.setLogin(login);
+        LoggedUser.setLanguage(language);
     }
 }

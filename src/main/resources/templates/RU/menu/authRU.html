@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title> Аутентификация </title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
@@ -11,13 +11,12 @@
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
 <form action="/auth" method="post">
     <input name="move" type="radio" value="Create"> Создать аккаунт
     <br><br>
-    <input name="move" type="radio" value="Login"> Войти в существующий
+    <input name="move" type="radio" value="SignIn"> Войти в существующий
     <br><br><br>
     <input name="login" placeholder="Введите логин: " style="width:50%; height: 50px; font-size: 30px" type="text">
     <br><br>
