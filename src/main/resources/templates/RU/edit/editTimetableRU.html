@@ -5,10 +5,22 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
-            color: white;
-            background: black;
             text-align: center;
             padding-top: 2rem;
+        }
+
+        table.text {
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        table.text td {
+            width: 50%;
+            vertical-align: top;
+        }
+
+        td.right {
+            text-align: center;
         }
 
         h1 {
@@ -16,47 +28,61 @@
         }
 
         h3 {
-            color: crimson;
+            color: green;
         }
     </style>
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 </head>
 <body>
 <h2 th:text="'Здравствуйте, ' + ${userLogin}"></h2>
-<h1> Обратите внимание! <br>
-</h1>
-<h2>
-    Для корректной работы <br>
-    Запись должна выглядеть так: <br>
-</h2>
-<h3>
-    День недели: понедельник <br><br>
-    Номер урока: 1 <br><br>
-    Название урока: Алгебра <br><br>
-    Номер кабинета: 333 <br><br>
-    Имя учителя: Иванов И.И. <br><br>
-</h3>
+<table class="text">
+    <tr>
+        <td>
+            <h2> Введите информацию об уроке:</h2>
+            <br><br>
+            <form action="/editTimetable" method="post">
+                <input name="dayOfWeek" placeholder="Введите день недели: "
+                       style="width:50%; height: 50px; font-size: 30px"
+                       type="text">
+                <br><br>
+                <input name="lessonNumber" placeholder="Введите номер урока: "
+                       style="width:50%; height: 50px; font-size: 30px"
+                       type="number">
+                <br><br>
+                <input name="lessonName" placeholder="Введите название урока: "
+                       style="width:50%; height: 50px; font-size: 30px"
+                       type="text">
+                <br><br>
+                <input name="roomNumber" placeholder="Введите номер кабинета: "
+                       style="width:50%; height: 50px; font-size: 30px"
+                       type="text">
+                <br><br>
+                <input name="teacherName" placeholder="Введите имя учителя: "
+                       style="width:50%; height: 50px; font-size: 30px"
+                       type="text">
+                <br><br>
+                <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
+            </form>
+        </td>
+        <td class="right">
+            <h1> Обратите внимание! <br>
+            </h1>
+            <h2>
+                Для корректной работы <br>
+                Запись должна выглядеть так: <br>
+            </h2>
+            <h3>
+                День недели: понедельник <br><br>
+                Номер урока: 1 <br><br>
+                Название урока: Алгебра <br><br>
+                Номер кабинета: 333 <br><br>
+                Имя учителя: Иванов И.И. <br><br>
+            </h3>
+        </td>
+    </tr>
+</table>
 
-<h2> Введите информацию об уроке:</h2>
-<br><br>
-<form action="/editTimetable" method="post">
-    <input name="dayOfWeek" placeholder="Введите день недели: " style="width:30%; height: 50px; font-size: 30px"
-           type="text">
-    <br><br>
-    <input name="lessonNumber" placeholder="Введите номер урока: " style="width:30%; height: 50px; font-size: 30px"
-           type="number">
-    <br><br>
-    <input name="lessonName" placeholder="Введите название урока: " style="width:30%; height: 50px; font-size: 30px"
-           type="text">
-    <br><br>
-    <input name="roomNumber" placeholder="Введите номер кабинета: " style="width:30%; height: 50px; font-size: 30px"
-           type="text">
-    <br><br>
-    <input name="teacherName" placeholder="Введите имя учителя: " style="width:30%; height: 50px; font-size: 30px"
-           type="text">
-    <br><br>
-    <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
-</form>
+
 <pre>
     <h2>Текущее расписание: </h2>
     <li th:each="lesson : ${timetable}" th:text="${lesson}"></li>
