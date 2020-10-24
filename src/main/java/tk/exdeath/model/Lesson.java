@@ -54,11 +54,11 @@ public class Lesson implements Serializable {
 
     @Override
     public String toString() {
-        return "Lesson Number: " + lessonNumber +
-                ", Day Of Week: " + dayOfWeek +
-                ", Lesson Name: " + lessonName +
-                ", Room Number: " + roomNumber +
-                ", Teacher Name: " + teacherName;
+        return "№: " + lessonNumber +
+                ", День недели: " + dayOfWeek +
+                ", Название: " + lessonName +
+                ", Кабинет: " + roomNumber +
+                ", Учитель: " + teacherName;
     }
 
     public String toRoomAndLessonRU() {

@@ -5,6 +5,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <style>
         body {
+            background: rgb(150, 180, 255);
             text-align: center;
             padding-top: 2rem;
         }
@@ -52,7 +53,7 @@
     <br><br>
     <button style="width:25%; height: 50px; font-size: 30px" type="submit">Подтвердить</button>
 </form>
-<pre>
+<pre style="text-align: left">
     <h2>Каникулы: </h2>
     <li th:each="holiday : ${holidays}" th:text="${holiday}"></li>
 </pre>

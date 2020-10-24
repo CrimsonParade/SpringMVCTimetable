@@ -52,7 +52,9 @@ public class EditTimetableController {
 
     private List<Lesson> getSortedTimetable() {
         List<Lesson> lessons = user.getLessons();
-        lessons.sort(Comparator.comparing(Lesson::getDayOfWeek));
+        if (!lessons.isEmpty()) {
+            lessons.sort(Comparator.comparing(Lesson::getDayOfWeek));
+        }
         return lessons;
     }
 }
